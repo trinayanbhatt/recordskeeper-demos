@@ -52,6 +52,7 @@
                         <li>Get XRK </li>
                         <li>Capture Data</li>
                         <li>Review Data</li>
+                        <li>Retrieve Data</li>
                     </ul>
                      <!-- fieldsets -->
                     <fieldset>
@@ -72,6 +73,7 @@
 
                         <input type="button" name="next" class="next action-button width200" value="Start Learning"/>
                     </fieldset>
+                    
                     <!-- fieldsets -->
                     <fieldset>
                         <h2 class="fs-title">Get XRK Token</h2>
@@ -112,14 +114,58 @@
                             Please Review your data carefully and enter your private key to authorize and submit the 
                             data on blockchain.
                         </p>
-                        <p>
-                            <span class="font15 maright30">1LhiWkvppxvtcdZL2zjXfvUsCfSangoCY8HqeL</span>
-                            <span class="font15">40 XRK</span>
-                        </p>
+                        <div> 
+                            <div class="row topbot25">
+                                <div class="col-md-6">
+                                    <p class="font15 themecolor">Address</p>
+                                    <p class="font15 ">1LhiWkvppxvtcdZL2zjXfvUsCfSangoCY8HqeL</p>
+                            
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="font15 ">Balance</p>
+                                    <p class="font15">40 XRK</p>
+                                </div>
+                            </div>
+                            <div class="row topbot25"> 
+                                <div class="col-md-6">
+                                    <p class="font15 themecolor">
+                                        Data Identifier Key
+                                    </p>
+                                    <p class="font15">
+                                        1a5XAgSR8KndTUWuiJaHFN6yLSSJmbbgoripUd
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                   <p class="font15 themecolor">
+                                        Transaction Fee
+                                    </p>
+                                    <p class="font15">
+                                        5 XRK
+                                    </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <p class="font15 themecolor">
+                                        Your Data
+                                    </p>
+                                     <p class="font15">
+                                        {
+                                            "name":"John",
+                                            "age":30,
+                                            "cars":[ "Ford", "BMW", "Fiat" ]
+                                            }
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row topbot25">
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                <input type="button" name="next" class="next action-button width200" value="Authorize"/> 
+                            </div>
+                        </div>
                         
                     </fieldset>
-
-
+                    
+                    
+                    
                 </form>
             </div>
         </div>
