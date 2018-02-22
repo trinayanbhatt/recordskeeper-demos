@@ -75,11 +75,18 @@
                     <!-- fieldsets -->
                     <fieldset>
                         <h2 class="fs-title">Get XRK Token</h2>
-
-                            <input type="button" name = "newUser" class="action-button newUser" value="New User"/>
-                            <div>
-                                <h3 class="fs-subtitle">Already Registered ? Enter your address</h3>
-                                <input type="text" name = "newUser" class=" " value="" placeholder="Registered User"/>
+                            <p class="font15">
+                                If you don't have XRK wallet which you need to upload data on Recordskeeper Blockchain then you can 
+                                create a new XRK Wallet by clicking here.
+                            </p>
+                            <input type="button" name = "newUser" class="action-button newUser" value="Generate XRK Wallet"/>
+                            <div class="topbot25">
+                                <p class="font15">
+                                   Or If you are already a registered user and already have a XRK wallet then you can simply
+                                    enter your address here and continue.
+                                </p>
+<!--                                <h3 class="fs-subtitle">Already Registered ? Enter your address</h3>-->
+                                <input type="text" name = "newUser" class=" " value="" placeholder="Enter your Address"/>
                             </div>
                         
                          <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
@@ -87,9 +94,9 @@
                     </fieldset>
                     <fieldset>
                         <h2 class="fs-title">Record your Data </h2>
-                        <h3 class="fs-subtitle">Secured Blockchain Network</h3>
-                        <input type="text" name="idkey" placeholder="Upload your Key"/>
-                        <input type="text" name="gplus" placeholder="Upload your Data in JSON"/>
+                        <h3 class="fs-subtitle">Secure Blockchain Network</h3>
+                        <input type="text" name="idkey" placeholder="Enter A Unique Identifier data"/>
+                        <textarea placeholder="Enter your Data in JSON format" rows="10"></textarea>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                         <input type="button" name="next" class="next action-button" value="Next"/>
                     </fieldset>
