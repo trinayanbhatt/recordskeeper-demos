@@ -51,7 +51,7 @@
                         <li class="active">Introduction</li>
                         <li>Get XRK </li>
                         <li>Capture Data</li>
-                        <li>Retrieve Data</li>
+                        <li>Review Data</li>
                     </ul>
                      <!-- fieldsets -->
                     <fieldset>
@@ -70,7 +70,7 @@
 -->
                            
 
-                        <input type="button" name="next" class="next action-button" value="Next"/>
+                        <input type="button" name="next" class="next action-button width200" value="Start Learning"/>
                     </fieldset>
                     <!-- fieldsets -->
                     <fieldset>
@@ -95,19 +95,28 @@
                     <fieldset>
                         <h2 class="fs-title">Record your Data </h2>
                         <h3 class="fs-subtitle">Secure Blockchain Network</h3>
-                        <input type="text" name="idkey" placeholder="Enter A Unique Identifier data"/>
+                        <p class="font15">
+                            Enter your data identifier which is associated with your data and it will be publically visible on blockchain.
+                        </p>
+                        <input type="text" name="idkey" placeholder="Enter an Identifier key"/>
+                        <p class="font15">
+                            Enter your data, which may be in any format like JSON, digest, hexcode, text, e.t.c.
+                        </p>
                         <textarea placeholder="Enter your Data in JSON format" rows="10"></textarea>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                         <input type="button" name="next" class="next action-button" value="Next"/>
                     </fieldset>
                     <fieldset>
-                        <h2 class="fs-title">Retrieve your Data</h2>
-                        <h3 class="fs-subtitle">Fill in your credentials</h3>
-                        <input type="text" name="email" placeholder="Email"/>
-                        <input type="password" name="pass" placeholder="Password"/>
-                        <input type="password" name="cpass" placeholder="Confirm Password"/>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                        <h2 class="fs-title">Review your Data</h2>
+                        <p class="font15">
+                            Please Review your data carefully and enter your private key to authorize and submit the 
+                            data on blockchain.
+                        </p>
+                        <p>
+                            <span class="font15 maright30">1LhiWkvppxvtcdZL2zjXfvUsCfSangoCY8HqeL</span>
+                            <span class="font15">40 XRK</span>
+                        </p>
+                        
                     </fieldset>
 
 
