@@ -60,7 +60,7 @@
                             <h3 class="fs-subtitle">Let's learn How to upload your confidential  data on Recordskeeper        Blockchain in just few clicks.
                                 
                             </h3>
-                        <input type="button" name="next" class="next action-button width200" value="Start Learning"/>
+                        <input type="button" name="next" class="next action-button width200" value="Start Learning" />
                     </fieldset>
                     
                     <!-- fieldsets -->
@@ -81,7 +81,7 @@
                             </div>
                         
                          <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class="next action-button" value="Next"/>
+                        <input type="button" name="next" class="next action-button" value="Next" id="firstNext"/>
                     </fieldset>
                     <fieldset>
                         <h2 class="fs-title">Record your Data </h2>
@@ -140,7 +140,7 @@
                            
                         </div>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                <input type="button" name="next" class="next action-button width200" value="Authorize"/> 
+                                <input type="button" name="next" class="next action-button width200" value="Authorize" id="authorize"/> 
                     </fieldset>
                     <fieldset>
                         <h2 class="fs-title">Retreieve your Data</h2>
@@ -152,7 +152,7 @@
                             <div class="row topbot25">
                                 <div class="col-md-6">
                                     <p class="font15 themecolor">Address</p>
-                                    <p class="font15 ">1LhiWkvppxvtcdZL2zjXfvUsCfSangoCY8HqeL</p>
+                                    <input type="text" name = "key" class="abcds" value="" placeholder="Enter the key" id = "regist"/>
                             
                                 </div>
                                 <div class="col-md-6">

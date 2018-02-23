@@ -10,20 +10,45 @@
 //declaring global flags here //
 
 var CONSOLE_DEBUG = true;
-
+var first ='';
 
 // global flags declaration ends here // 
 
 
 $(document).ready(function(){
+    
 		 // Animate loader off screen
+    
 		   $(".se-pre-con").fadeOut("slow");  // fadeout the preloader
+    
             x = toHex('18j9TSr5iwbZUM6w9HNyJyJPBJot14bMCm2w6R');
+    
             console.log('hexcode :',x);
+    
             recordData();
+    
             liststreamData();
+    
             getBalance();
+    
+           firstNext();
+            
 });
+
+
+
+
+function firstNext(){
+     $('#firstNext').click(function(){
+                  
+            first = document.getElementById('registerd').value;
+                console.log(first, "fir");
+                if(first = ''){
+                    alert('sdfsdf');
+                }
+//             
+            });
+}
 
 
 
@@ -92,16 +117,18 @@ function recordData(){
         
         var publicAddress = localStorage.getItem("public address");
         console.log("y", publicAddress);
-        sendWithData();
+        
         $('#reviewAddress').text(publicAddress);
-        $('#reviewKey').text(data);
+        $('#reviewKey').text(idkey);
         $('#reviewData').text(data);
         
     });
 }
 
 
-
+$('#authorize').click(function(){
+    sendWithData();
+});
 
 // sendWithData function here that makes a post request to sendwithdata.php
 //params : NULL
@@ -128,13 +155,13 @@ function sendWithData() {
 //params : NULL
 // get_address
 
-var datastring = 'sdfsdf';
+var ds = "gvcdgcv";
 
 function liststreamData() {
 	$.ajax({
 	type: "POST",
 	url: 'php/liststreamdata.php',
-	data:{action:'get_address'},
+	data:{key:''},
 	success:function(Response) {
         var x = Response;
         x = JSON.parse(x);
@@ -164,7 +191,6 @@ function getBalance() {
         }
 	});
 }
-
 
 
 
