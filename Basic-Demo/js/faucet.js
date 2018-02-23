@@ -7,14 +7,126 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//declaring global flags here //
+
+var CONSOLE_DEBUG = true;
+
+
+// global flags declaration ends here // 
+
 
 $(document).ready(function(){
 		 // Animate loader off screen
 		   $(".se-pre-con").fadeOut("slow");  // fadeout the preloader
-
+            x = toHex('18j9TSr5iwbZUM6w9HNyJyJPBJot14bMCm2w6R');
+            console.log('hexcode :',x);
+            recordData();
 });
 
 
+
+
+
+$('#createkeypair').click(function(){
+    CreateKeyPairs(); 
+     
+});
+
+
+
+// CreateKeyPairs function here that makes a post request to sendwithdata.php
+//params : NULL
+// get_address
+function CreateKeyPairs() {
+	$.ajax({
+	type: "POST",
+	url: 'php/createKeyPairs.php',
+	data:{action:'get_address'},
+	success:function(Response) {
+        var x = Response;
+        x = JSON.parse(x);
+    //	x = x.result;
+        CONSOLE_DEBUG && console.log('result in json format :', x);
+            x = x.result[0].address;
+
+        CONSOLE_DEBUG && console.log('result address :', x);
+        localStorage.setItem("public address", x);
+        document.getElementById('registerd').value = x;
+        
+	}
+	});
+}
+
+
+
+
+
+// toHex() function here that converts any string toHex
+// Params : str 
+// return : hex 
+
+function toHex(str) {
+	var hex = '';
+	for(var i=0;i<str.length;i++) {
+		hex += ''+str.charCodeAt(i).toString(16);
+	}
+	return hex;
+}
+
+
+
+// recordData() function here that converts any string toHex
+// Params : null 
+// return : none
+
+
+function recordData(){
+    $('#textareaBtn').click(function(){
+       var idkey = document.getElementById('idkey').value;
+        console.log('idkey', idkey);
+        var data = document.getElementById('dataTextarea').value;
+        console.log('data', data);
+        
+        sendWithData();
+    });
+}
+
+
+
+
+// sendWithData function here that makes a post request to sendwithdata.php
+//params : NULL
+// get_address
+function sendWithData() {
+	$.ajax({
+	type: "POST",
+	url: 'php/sendwithstreamdata.php',
+	data:{action:'get_address'},
+	success:function(Response) {
+        var x = Response;
+        x = JSON.parse(x);
+    //	x = x.result;
+        CONSOLE_DEBUG && console.log('result in json format :', x);
+	}
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function for multiple steps here //
     
 //jQuery time
 var current_fs, next_fs, previous_fs; //fieldsets

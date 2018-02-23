@@ -60,17 +60,6 @@
                             <h3 class="fs-subtitle">Let's learn How to upload your confidential  data on Recordskeeper        Blockchain in just few clicks.
                                 
                             </h3>
-<!--
-                            <p>Things you will learn here</p>
-                            <ul>
-                                <li>Get XRK Token</li>
-                                <li>Uploading Data on Blockchain</li>
-                                <li>Accessing Data stored on Blockchain</li>
-                                
-                            </ul>
--->
-                           
-
                         <input type="button" name="next" class="next action-button width200" value="Start Learning"/>
                     </fieldset>
                     
@@ -81,14 +70,14 @@
                                 If you don't have XRK wallet which you need to upload data on Recordskeeper Blockchain then you can 
                                 create a new XRK Wallet by clicking here.
                             </p>
-                            <input type="button" name = "newUser" class="action-button newUser" value="Generate XRK Wallet"/>
+                            <input type="button" name = "newUser" class="action-button newUser" value="Generate XRK Wallet" id="createkeypair"/>
                             <div class="topbot25">
                                 <p class="font15">
                                    Or If you are already a registered user and already have a XRK wallet then you can simply
                                     enter your address here and continue.
                                 </p>
 <!--                                <h3 class="fs-subtitle">Already Registered ? Enter your address</h3>-->
-                                <input type="text" name = "newUser" class=" " value="" placeholder="Enter your Address"/>
+                                <input type="text" name = "registered" class=" " value="" placeholder="Enter your Address" id = "registerd"/>
                             </div>
                         
                          <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
@@ -100,13 +89,13 @@
                         <p class="font15">
                             Enter your data identifier which is associated with your data and it will be publically visible on blockchain.
                         </p>
-                        <input type="text" name="idkey" placeholder="Enter an Identifier key"/>
+                        <input type="text" name="idkey" placeholder="Enter an Identifier key" id="idkey"/>
                         <p class="font15">
                             Enter your data, which may be in any format like JSON, digest, hexcode, text, e.t.c.
                         </p>
-                        <textarea placeholder="Enter your Data in JSON format" rows="10"></textarea>
+                        <textarea placeholder="Enter your Data" rows="10" id="dataTextarea"></textarea>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class="next action-button" value="Next"/>
+                        <input type="button" name="next" class="next action-button" value="Next"/ id="textareaBtn" >
                     </fieldset>
                     <fieldset>
                         <h2 class="fs-title">Review your Data</h2>
