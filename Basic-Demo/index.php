@@ -122,7 +122,7 @@
                             
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="font15 ">Balance</p>
+                                    <p class="font15 themecolor">Balance</p>
                                     <p class="font15">40 XRK</p>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                                         5 XRK
                                     </p>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <p class="font15 themecolor">
                                         Your Data
                                     </p>
@@ -156,14 +156,39 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="row topbot25">
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                <input type="button" name="next" class="next action-button width200" value="Authorize"/> 
-                            </div>
+                           
+                                
+                           
                         </div>
-                        
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                <input type="button" name="next" class="next action-button width200" value="Authorize"/> 
                     </fieldset>
-                    
+                    <fieldset>
+                        <h2 class="fs-title">Retreieve your Data</h2>
+                        <p class="font15">
+                            Please Review your data carefully and enter your private key to authorize and submit the 
+                            data on blockchain.
+                        </p>
+                        <div> 
+                            <div class="row topbot25">
+                                <div class="col-md-6">
+                                    <p class="font15 themecolor">Address</p>
+                                    <p class="font15 ">1LhiWkvppxvtcdZL2zjXfvUsCfSangoCY8HqeL</p>
+                            
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="font15 themecolor">Balance</p>
+                                    <p class="font15">40 XRK</p>
+                                </div>
+                            </div>
+                           
+                             
+                                
+                           
+                        </div>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <input type="button" name="next" class="next action-button width200" value="Authorize"/> 
+                    </fieldset>
                     
                     
                 </form>
