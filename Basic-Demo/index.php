@@ -105,46 +105,36 @@
                         </p>
                         <div> 
                             <div class="row topbot25">
-                                <div class="col-md-6">
-                                    <p class="font15 themecolor">Address</p>
-                                    <p class="font15 ">1LhiWkvppxvtcdZL2zjXfvUsCfSangoCY8HqeL</p>
-                            
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="font15 themecolor">Balance</p>
-                                    <p class="font15">40 XRK</p>
-                                </div>
-                            </div>
-                            <div class="row topbot25"> 
-                                <div class="col-md-6">
-                                    <p class="font15 themecolor">
+                                <div class="col-md-3">
+                                    <p class="font15 themecolor text-left">Address</p>
+                                     <p class="font15 themecolor text-left"></p>
+                                     <p class="font15 themecolor text-left">
                                         Data Identifier Key
                                     </p>
-                                    <p class="font15">
-                                        1a5XAgSR8KndTUWuiJaHFN6yLSSJmbbgoripUd
-                                    </p>
-                                </div>
-                                <div class="col-md-6">
-                                   <p class="font15 themecolor">
-                                        Transaction Fee
-                                    </p>
-                                    <p class="font15">
-                                        5 XRK
-                                    </p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="font15 themecolor">
+                                    <p class="font15 themecolor text-left">
                                         Your Data
                                     </p>
-                                     <p class="font15">
+                            
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="font15 text-left" id="reviewAddress">1LhiWkvppxvtcdZL2zjXfvUsCfSangoCY8HqeL  <span class="font15 themecolor balancespan">( Balance : 40 XRK ) </span> </p>
+                                   
+                                    
+                                     <p class="font15 text-left" id="reviewKey">
+                                        1a5XAgSR8KndTUWuiJaHFN6yLSSJmbbgoripUd
+                                    </p>
+                                    <p class="font15 text-left" id="reviewData">
                                         {
                                             "name":"John",
                                             "age":30,
                                             "cars":[ "Ford", "BMW", "Fiat" ]
                                             }
+                                        
+                                        <span class="font15 themecolor balancespan">( Transaction fee : 40 XRK ) </span>
                                     </p>
                                 </div>
                             </div>
+                            
                            
                                 
                            

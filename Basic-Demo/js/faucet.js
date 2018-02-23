@@ -21,6 +21,8 @@ $(document).ready(function(){
             x = toHex('18j9TSr5iwbZUM6w9HNyJyJPBJot14bMCm2w6R');
             console.log('hexcode :',x);
             recordData();
+            liststreamData();
+            getBalance();
 });
 
 
@@ -84,10 +86,17 @@ function recordData(){
     $('#textareaBtn').click(function(){
        var idkey = document.getElementById('idkey').value;
         console.log('idkey', idkey);
+//        localStorage.setItem("idkey", idkey);
         var data = document.getElementById('dataTextarea').value;
         console.log('data', data);
         
+        var publicAddress = localStorage.getItem("public address");
+        console.log("y", publicAddress);
         sendWithData();
+        $('#reviewAddress').text(publicAddress);
+        $('#reviewKey').text(data);
+        $('#reviewData').text(data);
+        
     });
 }
 
@@ -97,11 +106,14 @@ function recordData(){
 // sendWithData function here that makes a post request to sendwithdata.php
 //params : NULL
 // get_address
+
+var datastring = 'sdfsdf';
+
 function sendWithData() {
 	$.ajax({
 	type: "POST",
 	url: 'php/sendwithstreamdata.php',
-	data:{action:'get_address'},
+	data:{action:'get_address', datastring},
 	success:function(Response) {
         var x = Response;
         x = JSON.parse(x);
@@ -112,7 +124,46 @@ function sendWithData() {
 }
 
 
+// sendWithData function here that makes a post request to sendwithdata.php
+//params : NULL
+// get_address
 
+var datastring = 'sdfsdf';
+
+function liststreamData() {
+	$.ajax({
+	type: "POST",
+	url: 'php/liststreamdata.php',
+	data:{action:'get_address'},
+	success:function(Response) {
+        var x = Response;
+        x = JSON.parse(x);
+    //	x = x.result;
+        CONSOLE_DEBUG && console.log('result in json format :', x);
+	}
+	});
+}
+
+// getBalance function here that makes a post request to sendwithdata.php
+//params : NULL
+// get_address
+
+
+
+function getBalance() {
+	$.ajax({
+	   type: "POST",
+	   url: 'php/getbalance.php',
+	   data:{action:'get_balance'},
+        success:function(Response) {
+            var x = Response;
+            x = JSON.parse(x);
+        //	x = x.result;
+            CONSOLE_DEBUG && console.log('getbalance :', x);
+//            x.result[0].
+        }
+	});
+}
 
 
 
