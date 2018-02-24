@@ -74,12 +74,15 @@ function CreateKeyPairs() {
         x = JSON.parse(x);
     //	x = x.result;
         CONSOLE_DEBUG && console.log('result in json format :', x);
-            x = x.result[0].address;
+            var  pubaddr = x.result[0].address;   //public address here 
+            var privkey1 = x.result[0].privkey;    // privkey here
+         CONSOLE_DEBUG && console.log('privkey', privkey1);  
 
-        CONSOLE_DEBUG && console.log('result address :', x);
-        localStorage.setItem("public address", x);
-        document.getElementById('registerd').value = x;
-        
+        CONSOLE_DEBUG && console.log('result address :', pubaddr);
+        localStorage.setItem("public address", pubaddr);
+        document.getElementById('registerd').value = pubaddr;
+        document.getElementById('modalshowaddress').innerHTML = 'Public Address : '+ pubaddr;
+        document.getElementById('modalshowkey').innerHTML = 'Private Key : ' + privkey1;
 	}
 	});
 }

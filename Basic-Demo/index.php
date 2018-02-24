@@ -16,7 +16,9 @@
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href = "css/style.css" rel="stylesheet">
-   
+   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
   </head>
 
   <body>
@@ -70,7 +72,7 @@
                                 If you don't have XRK wallet which you need to upload data on Recordskeeper Blockchain then you can 
                                 create a new XRK Wallet by clicking here.
                             </p>
-                            <input type="button" name = "newUser" class="action-button newUser" value="Generate XRK Wallet" id="createkeypair"/>
+                            <input type="button" name = "newUser" class="action-button newUser" value="Generate XRK Wallet" id="createkeypair"  data-toggle="modal" data-target="#myModal"/>
                             <div class="topbot25">
                                 <p class="font15">
                                    Or If you are already a registered user and already have a XRK wallet then you can simply
@@ -140,7 +142,7 @@
                            
                         </div>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                <input type="button" name="next" class="next action-button width200" value="Authorize" id="authorize"/> 
+                        <input type="button" name="next" class="next action-button width200" value="Authorize" id="authorize"/> 
                     </fieldset>
                     <fieldset>
                         <h2 class="fs-title">Retreieve your Data</h2>
@@ -176,6 +178,35 @@
 <!-- /.MultiStep Form -->
     </div>
 
+<!--      modal box here -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Recordskeeper Wallet</h4>
+      </div>
+      <div class="modal-body standfont">
+        <p class="themecolor"><i class="fas fa-dot-circle themecolor"></i>Your wallet has been created.</p>
+        <p id="modalshowaddress">
+<!--          <input type="text" value="" name="modalshowaddress" id="modalshowaddress">-->
+        </p>
+        <p id ="modalshowkey">
+          
+        </p>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>      
+      
     <!-- Bootstrap core JavaScript -->
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -186,7 +217,7 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/faucet.js"></script>
 
-
+    
   </body>
 
 </html>
