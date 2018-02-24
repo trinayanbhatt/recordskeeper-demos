@@ -222,7 +222,7 @@ var textFile = null,
 
   create.addEventListener('click', function () {
     var link = document.getElementById('downloadlink');
-    link.href = makeTextFile(privkey1);
+    link.href = makeTextFile("privKey : "+privkey1);
     link.style.display = 'block';
   }, false);
 })();
