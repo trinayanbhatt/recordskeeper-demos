@@ -11,7 +11,7 @@
 
 var CONSOLE_DEBUG = true;
 var first ='';
-
+var privkey1;
 // global flags declaration ends here // 
 
 
@@ -75,7 +75,7 @@ function CreateKeyPairs() {
     //	x = x.result;
         CONSOLE_DEBUG && console.log('result in json format :', x);
             var  pubaddr = x.result[0].address;   //public address here 
-            var privkey1 = x.result[0].privkey;    // privkey here
+            privkey1 = x.result[0].privkey;    // privkey here
          CONSOLE_DEBUG && console.log('privkey', privkey1);  
 
         CONSOLE_DEBUG && console.log('result address :', pubaddr);
@@ -194,6 +194,42 @@ function getBalance() {
         }
 	});
 }
+
+
+ // download a privkey textfile here 
+//  
+
+
+(function () {
+var textFile = null,
+  makeTextFile = function (text) {
+    var data = new Blob([text], {type: 'text/plain'});
+
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (textFile !== null) {
+      window.URL.revokeObjectURL(textFile);
+    }
+
+    textFile = window.URL.createObjectURL(data);
+
+    return textFile;
+  };
+
+
+  var create = document.getElementById('create'),
+    textbox = document.getElementById('modalshowkey');
+
+  create.addEventListener('click', function () {
+    var link = document.getElementById('downloadlink');
+    link.href = makeTextFile(privkey1);
+    link.style.display = 'block';
+  }, false);
+})();
+
+
+
+
 
 
 

@@ -276,7 +276,9 @@ body {
     background: #C5C5F1;
     text-decoration: none;
 }
-
+.maright10{
+    margin-right: 10px;
+}
 .balancespan{
            right: 4%;
     font-size: 13px;

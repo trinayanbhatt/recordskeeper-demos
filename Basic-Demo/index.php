@@ -145,7 +145,7 @@
                         <input type="button" name="next" class="next action-button width200" value="Authorize" id="authorize"/> 
                     </fieldset>
                     <fieldset>
-                        <h2 class="fs-title">Retreieve your Data</h2>
+                        <h2 class="fs-title">Retrieve your Data</h2>
                         <p class="font15">
                             Please Review your data carefully and enter your private key to authorize and submit the 
                             data on blockchain.
@@ -190,14 +190,14 @@
         <h4 class="modal-title">Recordskeeper Wallet</h4>
       </div>
       <div class="modal-body standfont">
-        <p class="themecolor"><i class="fas fa-dot-circle themecolor"></i>Your wallet has been created.</p>
+        <p class="themecolor"><i class="fas fa-dot-circle themecolor maright10"></i>Your wallet has been created.</p>
         <p id="modalshowaddress">
 <!--          <input type="text" value="" name="modalshowaddress" id="modalshowaddress">-->
         </p>
         <p id ="modalshowkey">
           
         </p>
-        
+         <button id="create">Create file</button> <a download="Privkey.txt" id="downloadlink" >Download</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
