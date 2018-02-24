@@ -3,8 +3,6 @@ $curl = curl_init();
 $key = $_POST['name'];
 $data = $_POST['val'];
 $adr = $_POST['addr'];
-
-error_log($adr);
 curl_setopt_array($curl, array(
   CURLOPT_PORT => "8378",
   CURLOPT_URL => "http://35.171.226.226:8378",
@@ -14,7 +12,7 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "{\"method\":\"sendwithdata\",\"params\":[$adr,10,{\"for\":\"root\",\"key\":$key,\"data\":$data}],\"id\":\"curltext\",\"chain_name\":\"recordskeeper-test\"}\n",
+  CURLOPT_POSTFIELDS => "{\"method\":\"sendwithdata\",\"params\":[\"$adr\",10,{\"for\":\"root\",\"key\":\"$key\",\"data\":\"$data\"}],\"id\":\"curltext\",\"chain_name\":\"recordskeeper-test\"}\n",
   CURLOPT_HTTPHEADER => array(
     "Authorization: Basic cmtycGM6QW54M1M0QzRLdG5DQ3cxRlBrU2FIcFRXZE5EenlLM2tmazZwaVpDclhYZUQ=",
     "Cache-Control: no-cache",

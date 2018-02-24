@@ -168,7 +168,7 @@
                            
                         </div>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class="next action-button width200" value="Authorize"/> 
+                        <input type="button" name="next" class="next action-button width200" value="Authorize" id="retrieve"/> 
                     </fieldset>
                     
                     
@@ -190,14 +190,17 @@
         <h4 class="modal-title">Recordskeeper Wallet</h4>
       </div>
       <div class="modal-body standfont">
-        <p class="themecolor"><i class="fas fa-dot-circle themecolor maright10"></i>Your wallet has been created.</p>
+        <p class="themecolor"><i class="fas fa-dot-circle themecolor maright10"></i>Your wallet has been created.<br>
+          Please download your private key and save it at a safe place, you will need it for your trasactions.
+          </p>
         <p id="modalshowaddress">
 <!--          <input type="text" value="" name="modalshowaddress" id="modalshowaddress">-->
         </p>
         <p id ="modalshowkey">
           
         </p>
-         <button id="create">Create file</button> <a download="Privkey.txt" id="downloadlink" >Download</a>
+           <a download="Privkey.txt" id="downloadlink" >Download</a>
+<!--         <button id="create">Create file</button> <a download="Privkey.txt" id="downloadlink" >Download</a>-->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

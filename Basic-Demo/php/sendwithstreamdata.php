@@ -1,5 +1,10 @@
 <?php
 $curl = curl_init();
+$key = $_POST['name'];
+$data = $_POST['val'];
+$adr = $_POST['addr'];
+
+error_log($adr);
 curl_setopt_array($curl, array(
   CURLOPT_PORT => "8378",
   CURLOPT_URL => "http://35.171.226.226:8378",

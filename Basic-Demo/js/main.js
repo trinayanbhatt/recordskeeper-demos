@@ -5,10 +5,17 @@
  // Toshblocks innovations  //
 /////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 //declaring global flags here //
+
+
 var CONSOLE_DEBUG = true;
 var first ='';
+var privkey1;
+var  pubaddr;
 // global flags declaration ends here // 
+
 $(document).ready(function(){
     
          // Animate loader off screen
@@ -19,7 +26,14 @@ $(document).ready(function(){
     
             console.log('hexcode :',x);
     
-            recordData();
+            recordData();     //recordData function find below
+    
+            importAddress();   //importAddress function to import address on node
+            
+            sendCoins();       //after address is imported send coins
+            
+            createRawSendFrom();  // createRawSendFrom() function below
+    
     
            // liststreamData();
     
@@ -28,6 +42,9 @@ $(document).ready(function(){
            firstNext();
             
 });
+
+
+
 function firstNext(){
      $('#firstNext').click(function(){
                   
@@ -39,6 +56,9 @@ function firstNext(){
 //             
             });
 }
+
+
+
 $('#createkeypair').click(function(){
     CreateKeyPairs(); 
      
@@ -56,14 +76,48 @@ function CreateKeyPairs() {
         x = JSON.parse(x);
     //  x = x.result;
         CONSOLE_DEBUG && console.log('result in json format :', x);
-            var  pubaddr = x.result[0].address;   //public address here 
-            var privkey1 = x.result[0].privkey;    // privkey here
+              pubaddr = x.result[0].address;   //public address here 
+             privkey1 = x.result[0].privkey;    // privkey here
          CONSOLE_DEBUG && console.log('privkey', privkey1);  
         CONSOLE_DEBUG && console.log('result address :', pubaddr);
         localStorage.setItem("public address", pubaddr);
         document.getElementById('registerd').value = pubaddr;
         document.getElementById('modalshowaddress').innerHTML = 'Public Address : '+ pubaddr;
         document.getElementById('modalshowkey').innerHTML = 'Private Key : ' + privkey1;
+        
+        
+        ///////////////
+        
+        (function () {
+            var textFile = null,
+              makeTextFile = function (text) {
+                var data = new Blob([text], {type: 'text/plain'});
+
+                // If we are replacing a previously generated file we need to
+                // manually revoke the object URL to avoid memory leaks.
+                if (textFile !== null) {
+                  window.URL.revokeObjectURL(textFile);
+                }
+
+                textFile = window.URL.createObjectURL(data);
+
+                return textFile;
+              };
+
+ 
+              var create = document.getElementById('create'),
+                textbox = document.getElementById(privkey1);
+
+
+                var link = document.getElementById('downloadlink');
+                link.href = makeTextFile(privkey1);
+                link.style.display = 'block';
+ 
+        })();
+        
+        
+        
+        //////////////
     }
     });
 }
@@ -105,6 +159,8 @@ $('#authorize').click(function(){
     console.log(key);
     sendWithData(add, key, hexData);
 });
+
+
 // sendWithData function here that makes a post request to sendwithdata.php
 //params : NULL
 // get_address
@@ -114,7 +170,7 @@ function sendWithData(add, key, hexData) {
  var c = add;
     $.ajax({
     type: "POST",
-    url: 'php/sendwithstreamdata.php',
+    url: 'php/sendwithdata.php',
     data:({name: a, val: b, addr: c}),
     success:function(Response) {
         var x = Response;
@@ -124,9 +180,10 @@ function sendWithData(add, key, hexData) {
     }
     });
 }
-// sendWithData function here that makes a post request to sendwithdata.php
-//params : NULL
-// get_address
+
+
+  
+
 $('#retrieve').click(function(){
     
     var key1 = $('#reviewKey').text();
@@ -134,6 +191,11 @@ $('#retrieve').click(function(){
     console.log(key1);
     liststreamData(key1);
 });
+
+// retrivedata function here that makes a post request to liststreamdata.php
+ //params : NULL
+// get_address
+
 function liststreamData(key1) {
     var ab = key1;
     $.ajax({
@@ -148,7 +210,8 @@ function liststreamData(key1) {
     }
     });
 }
-// getBalance function here that makes a post request to sendwithdata.php
+
+// getBalance function here that makes a post request to getbalance.php
 //params : NULL
 // get_address
 function getBalance() {
@@ -167,6 +230,77 @@ function getBalance() {
 }
 // function for multiple steps here //
     
+
+// importAddress() function here that makes a post request to importaddress.php
+//params : NULL
+// 
+function importAddress() {
+    $.ajax({
+       type: "POST",
+       url: 'php/importaddress.php',
+       data:({public: pubaddr}),
+        success:function(Response) {
+            var x = Response;
+            x = JSON.parse(x);
+        //  x = x.result;
+            CONSOLE_DEBUG && console.log('importaddress result :', x);
+//            x.result[0].
+        }
+    });
+}
+
+  // importAddress() function here that makes a post request to importaddress.php
+ //params : NULL
+// 
+function sendCoins() {
+    $.ajax({
+       type: "POST",
+       url: 'php/sendcoins.php',
+       data:{action:'get_balance'},
+        success:function(Response) {
+            var x = Response;
+            x = JSON.parse(x);
+        //  x = x.result;
+            CONSOLE_DEBUG && console.log('coins sent status :', x);
+//            x.result[0].
+        }
+    });
+}
+
+
+ // createRawSendFrom() function here that makes a post request to importaddress.php
+ //params : NULL
+// 
+function createRawSendFrom() {
+    $.ajax({
+       type: "POST",
+       url: 'php/createrawsendfrom.php',
+       data:{action:'get_balance'},
+        success:function(Response) {
+            var x = Response;
+            x = JSON.parse(x);
+        //  x = x.result;
+            CONSOLE_DEBUG && console.log('create raw send from:', x);
+//            x.result[0].
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //jQuery time
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
