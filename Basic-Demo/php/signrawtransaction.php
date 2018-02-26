@@ -1,10 +1,9 @@
 <?php
 $config = include('config.php');
 $chain = $config['chain'];
-$fromaddress = $config['fromaddress'];
-$coin = $config['coin'];
 $curl = curl_init();
-$addr = $_POST['addr'];
+$tx_hex = $_POST['from'];
+$priv = $_POST['key'];
 curl_setopt_array($curl, array(
   CURLOPT_PORT => $config['rk_port'],
   CURLOPT_URL => $config['rk_host'],
@@ -13,14 +12,14 @@ curl_setopt_array($curl, array(
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 70,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "{\"method\":\"sendfrom\",\"params\":[\"$fromaddress\",\"$addr\",$coin],\"id\":\"curltext\",\"chain_name\":\"$chain\"}",
+  CURLOPT_POSTFIELDS => "{\"method\":\"signrawtransaction\",\"params\":[\"$tx_hex\",[],[\"$priv\"]],\"id\":\"curltext\",\"chain_name\":\"$chain\"}",
   CURLOPT_HTTPHEADER => array(
     "Cache-Control: no-cache",
     "Content-Type: application/json",
-    "Postman-Token: 2155ab9d-9150-30fb-2093-37a6fd6ebd78"
+    "Postman-Token: 543000e0-8593-1e4c-05b3-b8461896794d"
   ),
 ));
 $response = curl_exec($curl);
@@ -31,3 +30,4 @@ if ($err) {
 } else {
   echo $response;
 }
+

@@ -14,6 +14,9 @@ var CONSOLE_DEBUG = true;
 var first ='';
 var privkey1;
 var  pubaddr;
+var pubkey1;
+var dataHex;
+var globe;
 // global flags declaration ends here // 
 
 $(document).ready(function(){
@@ -21,46 +24,14 @@ $(document).ready(function(){
          // Animate loader off screen
     
            $(".se-pre-con").fadeOut("slow");  // fadeout the preloader
-    
-            x = toHex('18j9TSr5iwbZUM6w9HNyJyJPBJot14bMCm2w6R');
-    
-            console.log('hexcode :',x);
-    
-            recordData();     //recordData function find below
-    
-            importAddress();   //importAddress function to import address on node
-            
-            sendCoins();       //after address is imported send coins
-            
-            createRawSendFrom();  // createRawSendFrom() function below
-    
-    
-           // liststreamData();
-    
-            getBalance();
-    
-           firstNext();
-            
+     
 });
-
-
-
-function firstNext(){
-     $('#firstNext').click(function(){
-                  
-            first = document.getElementById('registerd').value;
-                console.log(first, "fir");
-                if(first = ''){
-                    alert('sdfsdf');
-                }
-//             
-            });
-}
 
 
 
 $('#createkeypair').click(function(){
     CreateKeyPairs(); 
+
      
 });
 // CreateKeyPairs function here that makes a post request to sendwithdata.php
@@ -69,7 +40,7 @@ $('#createkeypair').click(function(){
 function CreateKeyPairs() {
     $.ajax({
     type: "POST",
-    url: 'php/createKeyPairs.php',
+    url: 'php/createkeypairs.php',
     data:{action:'get_address'},
     success:function(Response) {
         var x = Response;
@@ -78,8 +49,10 @@ function CreateKeyPairs() {
         CONSOLE_DEBUG && console.log('result in json format :', x);
               pubaddr = x.result[0].address;   //public address here 
              privkey1 = x.result[0].privkey;    // privkey here
+             pubkey1 = x.result[0].pubkey;
          CONSOLE_DEBUG && console.log('privkey', privkey1);  
         CONSOLE_DEBUG && console.log('result address :', pubaddr);
+        CONSOLE_DEBUG && console.log('result key :', pubkey1);
         localStorage.setItem("public address", pubaddr);
         document.getElementById('registerd').value = pubaddr;
         document.getElementById('modalshowaddress').innerHTML = 'Public Address : '+ pubaddr;
@@ -87,6 +60,7 @@ function CreateKeyPairs() {
         
         
         ///////////////
+        
         
         (function () {
             var textFile = null,
@@ -134,129 +108,106 @@ function toHex(str) {
 // recordData() function here that converts any string toHex
 // Params : null 
 // return : none
-function recordData(){
-    $('#textareaBtn').click(function(){
-       var idkey = document.getElementById('idkey').value;
-        console.log('idkey', idkey);
-//        localStorage.setItem("idkey", idkey);
-        var data = document.getElementById('dataTextarea').value;
-        console.log('data', data);
-        
-        var publicAddress = localStorage.getItem("public address");
-        console.log("y", publicAddress);
-        
-        $('#reviewAddress').text(publicAddress);
-        $('#reviewKey').text(idkey);
-        $('#reviewData').text(data);
-        
-    });
-}
-$('#authorize').click(function(){
-    var add = $('#reviewAddress').text();
-    var key = $('#reviewKey').text();
-    var data = $('#reviewData').text();
-    var hexData =toHex(data);
-    console.log(key);
-    sendWithData(add, key, hexData);
-});
+function hex2a(hexx) {
+    var hex = hexx.toString();//force conversion
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    return str;
+} 
 
-
-// sendWithData function here that makes a post request to sendwithdata.php
-//params : NULL
-// get_address
-function sendWithData(add, key, hexData) {
- var a= key;
- var b = hexData;
- var c = add;
-    $.ajax({
-    type: "POST",
-    url: 'php/sendwithdata.php',
-    data:({name: a, val: b, addr: c}),
-    success:function(Response) {
-        var x = Response;
-        x = JSON.parse(x);
-    //  x = x.result;
-        CONSOLE_DEBUG && console.log('result in json format :', x);
-    }
-    });
-}
 
 
   
 
 $('#retrieve').click(function(){
     
-    var key1 = $('#reviewKey').text();
-    
-    console.log(key1);
-    liststreamData(key1);
+    var key1 = document.getElementById('regist').value;
+liststreamData(key1);
 });
 
 // retrivedata function here that makes a post request to liststreamdata.php
  //params : NULL
 // get_address
-
-function liststreamData(key1) {
-    var ab = key1;
+function sendrawtransaction() {
+    var ab = globe;
     $.ajax({
     type: "POST",
-    url: 'php/liststreamdata.php',
-    data:({key: ab}),
+    url: 'php/sendrawtransaction.php',
+    data:({tx_hex: ab}),
     success:function(Response) {
         var x = Response;
         x = JSON.parse(x);
     //  x = x.result;
         CONSOLE_DEBUG && console.log('result in json format :', x);
     }
+});
+}
+
+function liststreamData(key1) {
+    var ac = key1;
+    $.ajax({
+    type: "POST",
+    url: 'php/liststreamdata.php',
+    data:({key: ac}),
+    success:function(Response) {
+        var x = Response;
+        x = JSON.parse(x);
+    //  x = x.result;
+    var p = x.result[0].publishers[0];
+    var q = hex2a(x.result[0].data);
+    $('#publisheraddress').text(p);
+        $('#savedkey').text(x.result[0].key);
+        $('#hexdata').text(q);
+ 
+        CONSOLE_DEBUG && console.log('result in json format :', x);
+           console.log(p);
+    }
     });
 }
 
-// getBalance function here that makes a post request to getbalance.php
-//params : NULL
-// get_address
-function getBalance() {
-    $.ajax({
-       type: "POST",
-       url: 'php/getbalance.php',
-       data:{action:'get_balance'},
-        success:function(Response) {
-            var x = Response;
-            x = JSON.parse(x);
-        //  x = x.result;
-            CONSOLE_DEBUG && console.log('getbalance :', x);
-//            x.result[0].
-        }
-    });
-}
-// function for multiple steps here //
-    
 
 // importAddress() function here that makes a post request to importaddress.php
 //params : NULL
 // 
+    $('#firstNext').click(function(){
+        pubaddr = document.getElementById('registerd').value;
+                  importAddress();
+//             
+            });
+
 function importAddress() {
+    var a = pubaddr;
     $.ajax({
        type: "POST",
        url: 'php/importaddress.php',
-       data:({public: pubaddr}),
+       data:({public: a}),
         success:function(Response) {
             var x = Response;
             x = JSON.parse(x);
         //  x = x.result;
             CONSOLE_DEBUG && console.log('importaddress result :', x);
 //            x.result[0].
+sendCoins();
         }
+        
     });
+
+
+
+
+
 }
 
   // importAddress() function here that makes a post request to importaddress.php
  //params : NULL
 // 
 function sendCoins() {
+    var b = pubaddr;
     $.ajax({
        type: "POST",
        url: 'php/sendcoins.php',
-       data:{action:'get_balance'},
+       data:{addr: b},
         success:function(Response) {
             var x = Response;
             x = JSON.parse(x);
@@ -266,27 +217,84 @@ function sendCoins() {
         }
     });
 }
+$(".toggle-password").click(function() {
 
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $($(this).attr("toggle"));
+  if (input.attr("type") == "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+});
 
  // createRawSendFrom() function here that makes a post request to importaddress.php
  //params : NULL
 // 
-function createRawSendFrom() {
+$('#textareaBtn').click(function(){
+       var idkey = document.getElementById('idkey').value;
+        console.log('idkey', idkey);
+//        localStorage.setItem("idkey", idkey);
+        var data = document.getElementById('dataTextarea').value;
+        console.log('data', data);
+        privkey1 = document.getElementById('password-field').value;
+        console.log(document.getElementById('password-field').value);
+        console.log(privkey1);
+
+        var publicAddress = localStorage.getItem("public address");
+        console.log("y", publicAddress);
+        
+        $('#reviewAddress').text(publicAddress);
+        $('#reviewKey').text(idkey);
+        $('#reviewData').text(data);
+        hexData = toHex(data);
+        createRawSendFrom(idkey);        
+    });
+function createRawSendFrom(idkey) {
+    var aa = pubaddr;
+    var ab = idkey;
+    var ac = hexData;
     $.ajax({
        type: "POST",
        url: 'php/createrawsendfrom.php',
-       data:{action:'get_balance'},
+       data:{from: aa, key: ab, val: ac},
         success:function(Response) {
             var x = Response;
             x = JSON.parse(x);
         //  x = x.result;
-            CONSOLE_DEBUG && console.log('create raw send from:', x);
+        globe = x.result;
+            CONSOLE_DEBUG && console.log('create raw send from:', globe);
 //            x.result[0].
         }
     });
 }
 
+$('#authorize').click(function(){
+    
+    signrawtransaction();
+});
 
+function signrawtransaction(){
+     var aa = privkey1;
+    var ab = globe;
+  
+    $.ajax({
+       type: "POST",
+       url: 'php/signrawtransaction.php',
+       data:{from: globe, key: aa},
+        success:function(Response) {
+            var x = Response;
+            x = JSON.parse(x);
+        //  x = x.result;
+        globe = x.result.hex;
+            CONSOLE_DEBUG && console.log('sign raw:', globe);
+//            x.result[0].
+sendrawtransaction();
+        }
+    });
+
+
+}
 
 
 

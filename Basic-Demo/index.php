@@ -96,6 +96,11 @@
                             Enter your data, which may be in any format like JSON, digest, hexcode, text, e.t.c.
                         </p>
                         <textarea placeholder="Enter your Data" rows="10" id="dataTextarea"></textarea>
+                        <p class="font15">
+                            Enter your private key
+                        </p>
+                        <input id="password-field" type="password" name="password" placeholder="Enter your private key" value="secret">
+              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                         <input type="button" name="next" class="next action-button" value="Next"/ id="textareaBtn" >
                     </fieldset>
@@ -158,8 +163,12 @@
                             
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="font15 themecolor">Balance</p>
-                                    <p class="font15">40 XRK</p>
+                                    <p class="font15 themecolor">Address</p>
+                                    <p class="font15" id = "publisheraddress"></p>
+                                     <p class="font15 themecolor">key</p>
+                                    <p class="font15" id = "savedkey"></p>
+                                     <p class="font15 themecolor">Data</p>
+                                    <p class="font15" id="hexdata"></p>
                                 </div>
                             </div>
                            
@@ -168,7 +177,7 @@
                            
                         </div>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class="next action-button width200" value="Authorize" id="retrieve"/> 
+                        <input type="button" name="next" class=" action-button width200" value="Authorize" id="retrieve"/> 
                     </fieldset>
                     
                     
