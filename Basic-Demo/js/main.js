@@ -17,11 +17,14 @@ var  pubaddr;
 var pubkey1;
 var dataHex;
 var globe;
+ var jsondata;
+var testnetUrl = 'http://test-exp.recordskeeper.co/RecordsKeeper%20Testnet/tx/';
+var mainnetUrl = 'http://exp.recordskeeper.co/RecordsKeeper%20Mainnet/tx/';
 // global flags declaration ends here // 
 
 $(document).ready(function(){
     
-         // Animate loader off screen
+         // Animate loader off screenvae=
     
            $(".se-pre-con").fadeOut("slow");  // fadeout the preloader
      
@@ -31,7 +34,7 @@ $(document).ready(function(){
 
 $('#createkeypair').click(function(){
     CreateKeyPairs(); 
-
+    
      
 });
 // CreateKeyPairs function here that makes a post request to sendwithdata.php
@@ -45,8 +48,8 @@ function CreateKeyPairs() {
     success:function(Response) {
         var x = Response;
         x = JSON.parse(x);
-    //  x = x.result;
-        CONSOLE_DEBUG && console.log('result in json format :', x);
+         jsondata = x.result[0];
+        CONSOLE_DEBUG && console.log('result in json format keys:', jsondata);
               pubaddr = x.result[0].address;   //public address here 
              privkey1 = x.result[0].privkey;    // privkey here
              pubkey1 = x.result[0].pubkey;
@@ -60,12 +63,11 @@ function CreateKeyPairs() {
         
         
         ///////////////
-        
-        
+      
         (function () {
             var textFile = null,
               makeTextFile = function (text) {
-                var data = new Blob([text], {type: 'text/plain'});
+                var data = new Blob([text], {type: 'application/json'});
 
                 // If we are replacing a previously generated file we need to
                 // manually revoke the object URL to avoid memory leaks.
@@ -84,12 +86,10 @@ function CreateKeyPairs() {
 
 
                 var link = document.getElementById('downloadlink');
-                link.href = makeTextFile(privkey1);
+                link.href = makeTextFile("{ 'Public Address' : " +"'"+ pubaddr+"'"+", " + "\n 'private key' :" +"'"+ privkey1 +"'"+", " +"\n 'public key' : " +"'"+ pubkey1+"'" +", " +"\n }" );
                 link.style.display = 'block';
  
         })();
-        
-        
         
         //////////////
     }
@@ -124,6 +124,7 @@ $('#retrieve').click(function(){
     
     var key1 = document.getElementById('regist').value;
 liststreamData(key1);
+    
 });
 
 // retrivedata function here that makes a post request to liststreamdata.php
@@ -138,8 +139,13 @@ function sendrawtransaction() {
     success:function(Response) {
         var x = Response;
         x = JSON.parse(x);
-    //  x = x.result;
-        CONSOLE_DEBUG && console.log('result in json format :', x);
+          x = x.result;
+        CONSOLE_DEBUG && console.log('sendraw transation format :', x);
+        $('.transactionid').text(x);
+        Url = testnetUrl + x;
+        console.log("Url",Url);
+        $('.transactionUrl').text(Url);
+        $('.transactionUrl').attr("href", Url)
     }
 });
 }
@@ -162,7 +168,9 @@ function liststreamData(key1) {
  
         CONSOLE_DEBUG && console.log('result in json format :', x);
            console.log(p);
+         $(".datacontainer").css("display", "block");
     }
+       
     });
 }
 
@@ -272,7 +280,14 @@ function createRawSendFrom(idkey) {
 $('#authorize').click(function(){
     
     signrawtransaction();
+     
+   
 });
+
+$('#authnext').click(function(){
+  
+});
+
 
 function signrawtransaction(){
      var aa = privkey1;
@@ -290,6 +305,9 @@ function signrawtransaction(){
             CONSOLE_DEBUG && console.log('sign raw:', globe);
 //            x.result[0].
 sendrawtransaction();
+             $(".errorContainer").css("display", "block");
+//                $(".errorContainer").fadeOut();
+           
         }
     });
 
@@ -298,12 +316,48 @@ sendrawtransaction();
 
 
 
+////////   GOOGLE RECAPTCHA CLIENT SIDE AND SERVER SIDE VERIFICATION   /////////////
+
+            //----------------------------------------------------/
+           // onloadCallback()
+          // this 
+         //----------------------------------------------------/
 
 
 
+ var onloadCallback = function() {
+        grecaptcha.render('html_element', {    // oncallback render a div with id html_element
+          'sitekey' : '6Lc1CEMUAAAAADxvB2vR6rxjD4D2T2EyVJmgkKUS', // sitekey for the  captcha 
+          'theme' : 'light',           // change the theme for light and dark
+          'widgetId': 'widgetId',      // add widget id attribute which is optional
+          callback(){
+            console.log( 'another callback function here');
+            var response = grecaptcha.getResponse();    // get the value of response when user submits recaptcha
+            console.log('response from google : ', response);
+          
+            // send post method to captcha php that is usin curl post request for cross domain
+             $.post("php/captcha.php",
+                    {
+                      googleResponse: response     // pass the google response
+                     
+                    },
+                      function(response, status){   // pass two parameters respnse  and status 
+                           console.log("response after ssv : ", response, status); 
+
+                           if ( status == 'success'){
+                             captchaSuccess = status;
+                            console.log("captchaSuccess :", captchaSuccess);
+                            
+
+                           }
+                           // alert response and the status here after verification from google 
+                      });
+            }
+        });
+    };
 
 
-
+////////   GOOGLE RECAPTCHA CLIENT SIDE AND SERVER SIDE VERIFICATION   /////////////
 
 
 
@@ -387,3 +441,10 @@ $(".previous").click(function(){
 $(".submit").click(function(){
     return false;
 })
+
+
+
+
+
+
+

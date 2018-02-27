@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi">
-    <title>Faucet - Recordskeeper</title>
+    <title>Recordskeeper Demo</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
 
     <!-- Bootstrap core CSS -->
@@ -46,15 +46,16 @@
     <div class="container faucetcontainer">
         <!-- MultiStep Form -->
         <div class="row">
-            <div class="col-md-10 col-md-offset-1 ">
+            <div class="col-md-12 ">
                 <form id="msform">
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active">Introduction</li>
                         <li>Get XRK </li>
-                        <li>Capture Data</li>
-                        <li>Review Data</li>
-                        <li>Retrieve Data</li>
+                        <li>CREATE RECORD</li>
+                        <li>Review RECORD</li>
+                        <li>Retrieve RECORD</li>
+                         <li>Thank You</li>
                     </ul>
                      <!-- fieldsets -->
                     <fieldset>
@@ -62,7 +63,23 @@
                             <h3 class="fs-subtitle">Let's learn How to upload your confidential  data on Recordskeeper        Blockchain in just few clicks.
                                 
                             </h3>
-                        <input type="button" name="next" class="next action-button width200" value="Start Learning" />
+                            <div class="form leadform row">
+                                <div class="col-md-6">
+                                    <input type = "text" id="leadfirstname" name="leadfirstname" class="leadinputs ">
+                                  
+                                </div>
+                                <div class="col-md-6">
+                                    <input type = "text" id="leademail" name="leademail" class="leadinputs ">
+                                </div>
+                                
+                                
+                               
+                                
+                            </div>
+                             <div class="">
+                                    <div id="html_element"></div>
+                                </div>
+                        <input type="button" name="next" class="next action-button width200" value="Start Demo" />
                     </fieldset>
                     
                     <!-- fieldsets -->
@@ -99,8 +116,8 @@
                         <p class="font15">
                             Enter your private key
                         </p>
-                        <input id="password-field" type="password" name="password" placeholder="Enter your private key" value="secret">
-              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        <input id="password-field" type="password" name="password" placeholder="Enter your private key" value="">
+                        <i toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></i>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                         <input type="button" name="next" class="next action-button" value="Next"/ id="textareaBtn" >
                     </fieldset>
@@ -110,7 +127,20 @@
                             Please Review your data carefully and enter your private key to authorize and submit the 
                             data on blockchain.
                         </p>
-                        <div> 
+                    
+                        <div>
+                            <div class="row errorContainer">
+                                <p>Your Record has been successfully published !!</p>
+                                <div class="">
+                                   <span class="transid" >Transaction ID: </span>
+                                   <span class="transactionid"> # </span>
+                                </div>
+                                 <div class="">
+                                   <span id="transurl">Transaction URL : </span>
+<!--                                    <span class="mts"></span>-->
+                                   <div><a class="transactionid transactionUrl" target="_blank"> </a></div>
+                                </div>
+                            </div>
                             <div class="row topbot25">
                                 <div class="col-md-3">
                                     <p class="font15 themecolor text-left">Address</p>
@@ -147,28 +177,34 @@
                            
                         </div>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class="next action-button width200" value="Authorize" id="authorize"/> 
+                        <input type="button" name="authorize" class=" action-button width200" value="Authorize" id="authorize"/> 
+                         <input type="button" name="next" class="next action-button width200" value="Next" id="authnext"/> 
                     </fieldset>
                     <fieldset>
                         <h2 class="fs-title">Retrieve your Data</h2>
                         <p class="font15">
-                            Please Review your data carefully and enter your private key to authorize and submit the 
-                            data on blockchain.
+                           Enter your Record identifier to retrieve data from Recordskeeper Blockchain.
                         </p>
                         <div> 
                             <div class="row topbot25">
-                                <div class="col-md-6">
-                                    <p class="font15 themecolor">Address</p>
-                                    <input type="text" name = "key" class="abcds" value="" placeholder="Enter the key" id = "regist"/>
+                                <div class="">
+                                  
+                                    <input type="text" name = "key" class="abcds" value="" placeholder="Enter record key " id = "regist"/>
                             
                                 </div>
-                                <div class="col-md-6">
-                                    <p class="font15 themecolor">Address</p>
-                                    <p class="font15" id = "publisheraddress"></p>
-                                     <p class="font15 themecolor">key</p>
-                                    <p class="font15" id = "savedkey"></p>
-                                     <p class="font15 themecolor">Data</p>
-                                    <p class="font15" id="hexdata"></p>
+                                <div class="datacontainer">
+                                    <div class="row mtb5">
+                                        <div class="font15 themecolor text-left ext col-md-3">Publisher Address : </div>
+                                        <div class="font13 text-left col-md-7 overx" id = "publisheraddress"></div>
+                                    </div>
+                                     <div class="row mtb5">
+                                        <div class="font15 themecolor text-left ext col-md-3">Record Identifier : </div>
+                                         <div class="font13 text-left col-md-7 overx" id = "savedkey"></div>
+                                    </div>
+                                     <div class="row mtb5">
+                                        <div class="font15 themecolor text-left ext col-md-3">Record Data : </div>
+                                         <div class="font13 text-left col-md-7 overx" id="hexdata"></div>
+                                    </div>        
                                 </div>
                             </div>
                            
@@ -177,9 +213,34 @@
                            
                         </div>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class=" action-button width200" value="Authorize" id="retrieve"/> 
+                        <input type="button" name="next" class=" action-button width200" value="Retrieve" id="retrieve"/> 
+                        <input type="button" name="next" class="next action-button width200" value="Next" id="retrnext"/> 
+                        
                     </fieldset>
-                    
+                     <fieldset>
+                        <h2 class="fs-title">You've successfully completed Demo. </h2>
+                         <h3 class="fs-subtitle">Explore more.</h3>
+                         <div class="row">
+                            <a class="acolor" href="http://main-exp.recordskeeper.co/">
+                                <div class="">Recordskeeper Mainnet Explorer</div>
+                             </a>
+                              <a class="acolor" href="http://main-exp.recordskeeper.co/">
+                                <div class="">Recordskeeper Testnet Explorer</div>
+                             </a>
+                              <a class="acolor" href="http://faucet.recordskeeper.co//">
+                                <div class="">Recordskeeper Faucet</div>
+                             </a>
+                              <a class="acolor" href="http://wallet.recordskeeper.co/">
+                                <div class="">Recordskeeper Wallet </div>
+                             </a>
+                              <a class="acolor" href="http://stats.recordskeeper.co/">
+                                <div class="">Recordskeeper Stats</div>
+                             </a>
+                           
+                         </div>
+                                
+                           
+                    </fieldset>
                     
                 </form>
             </div>
@@ -208,7 +269,7 @@
         <p id ="modalshowkey">
           
         </p>
-           <a download="Privkey.txt" id="downloadlink" >Download</a>
+           <a download="Recordskeeper-wallet-key.json" id="downloadlink" >Download</a>
 <!--         <button id="create">Create file</button> <a download="Privkey.txt" id="downloadlink" >Download</a>-->
       </div>
       <div class="modal-footer">
@@ -228,6 +289,8 @@
     </script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
 
     
   </body>
