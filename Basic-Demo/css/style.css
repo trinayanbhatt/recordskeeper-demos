@@ -1,3 +1,6 @@
+
+
+
 #top {
     position: fixed;
     left: 0;
@@ -7,11 +10,28 @@
     height: 49px;
     background: #212739;
 }
-
+h2.fs-title.mtop10 {
+    margin-top: 10px;
+}
+.simg{
+    width: 64px;
+}
 #logo img{
 	    width: 275px;
     margin-top: 7px;
     margin-left: 15px;
+}
+.socialfonts{
+        font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.footerrow{
+    margin-top: 35px;
+    color: #22283a;
+}
+.footerrow:hover{
+    color: darkgray;
 }
 .se-pre-con {
     position: fixed;

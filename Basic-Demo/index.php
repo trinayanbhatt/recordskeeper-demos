@@ -154,20 +154,16 @@
                             
                                 </div>
                                 <div class="col-md-9">
-                                    <p class="font15 text-left" id="reviewAddress">1LhiWkvppxvtcdZL2zjXfvUsCfSangoCY8HqeL  <span class="font15 themecolor balancespan">( Balance : 40 XRK ) </span> </p>
+                                    <p class="font15 text-left" id="reviewAddress">  <span class="font15 themecolor balancespan"> </span> </p>
                                    
                                     
                                      <p class="font15 text-left" id="reviewKey">
-                                        1a5XAgSR8KndTUWuiJaHFN6yLSSJmbbgoripUd
+                                       
                                     </p>
                                     <p class="font15 text-left" id="reviewData">
-                                        {
-                                            "name":"John",
-                                            "age":30,
-                                            "cars":[ "Ford", "BMW", "Fiat" ]
-                                            }
+                                      
                                         
-                                        <span class="font15 themecolor balancespan">( Transaction fee : 40 XRK ) </span>
+                                        <span class="font15 themecolor balancespan"> </span>
                                     </p>
                                 </div>
                             </div>
@@ -218,8 +214,16 @@
                         
                     </fieldset>
                      <fieldset>
-                        <h2 class="fs-title">You've successfully completed Demo. </h2>
-                         <h3 class="fs-subtitle">Explore more.</h3>
+                         <div class="completcont">
+                            <div >
+                                <img src="images/success.png" class="simg">
+                             </div>
+                            <div class="">
+                                <h2 class="fs-title mtop10">You've successfully completed Demo. </h2>
+                             </div>
+                         </div>
+                        
+                         <h3 class="fs-subtitle">Explore more about us .</h3>
                          <div class="row">
                             <a class="acolor" href="http://main-exp.recordskeeper.co/">
                                 <div class="">Recordskeeper Mainnet Explorer</div>
@@ -235,6 +239,19 @@
                              </a>
                               <a class="acolor" href="http://stats.recordskeeper.co/">
                                 <div class="">Recordskeeper Stats</div>
+                             </a>
+                           
+                         </div>
+                         <div class="row footerrow">
+                             <a href="https://www.facebook.com/recordskeeper/" target="_blank" class="themecolor">
+                                <i class="fab socialfonts fa-facebook-f "></i>
+                             </a>
+                             <a href="https://twitter.com/records_keeper" target="_blank" class="themecolor">
+                                <i class="fab socialfonts fa-twitter"></i>
+                             </a>
+                             
+                             <a href="https://t.me/joinchat/B4T_PxInGAjiXLz1N66t3Q" target="_blank" class="themecolor">
+                                <i class="fab socialfonts fa-telegram-plane"></i>
                              </a>
                            
                          </div>
@@ -289,6 +306,8 @@
     </script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.all.min.js"></script>
+
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
         async defer>
 
