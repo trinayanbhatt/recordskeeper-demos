@@ -158,14 +158,10 @@
                                    
                                     
                                      <p class="font15 text-left" id="reviewKey">
-                                        1a5XAgSR8KndTUWuiJaHFN6yLSSJmbbgoripUd
+                                        
                                     </p>
                                     <p class="font15 text-left" id="reviewData">
-                                        {
-                                            "name":"John",
-                                            "age":30,
-                                            "cars":[ "Ford", "BMW", "Fiat" ]
-                                            }
+                                       
                                         
                                         <span class="font15 themecolor balancespan">( Transaction fee : 40 XRK ) </span>
                                     </p>
