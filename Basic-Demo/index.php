@@ -36,7 +36,7 @@
 				</nav>
 				<nav id="nav">
 					<ul>
-						<label id="togglecontlabel">TestNetwork</label>
+<!--						<label id="togglecontlabel">TestNetwork</label>-->
 					</ul>	
 				</nav>
 			</header>
@@ -65,11 +65,11 @@
                             </h3>
                             <div class="form leadform row">
                                 <div class="col-md-6">
-                                    <input type = "text" id="leadfirstname" name="leadfirstname" class="leadinputs ">
+                                    <input type = "text" id="leadfirstname" name="leadfirstname" class="leadinputs " placeholder="Enter your Name " required>
                                   
                                 </div>
                                 <div class="col-md-6">
-                                    <input type = "text" id="leademail" name="leademail" class="leadinputs ">
+                                    <input type = "email" id="leademail" name="leademail" class="leadinputs " placeholder = "Enter your email address" required>
                                 </div>
                                 
                                 
@@ -79,7 +79,7 @@
                              <div class="">
                                     <div id="html_element"></div>
                                 </div>
-                        <input type="button" name="next" class="next action-button width200" value="Start Demo" />
+                        <input type="button" name="next" class="next action-button width200" value="Start Demo" id="startdemo" />
                     </fieldset>
                     
                     <!-- fieldsets -->
@@ -108,7 +108,7 @@
                         <p class="font15">
                             Enter your data identifier which is associated with your data and it will be publically visible on blockchain.
                         </p>
-                        <input type="text" name="idkey" placeholder="Enter an Identifier key" id="idkey"/>
+                        <input type="text" name="idkey" placeholder="Enter Record Identifier key" id="idkey"/>
                         <p class="font15">
                             Enter your data, which may be in any format like JSON, digest, hexcode, text, e.t.c.
                         </p>
@@ -124,7 +124,7 @@
                     <fieldset>
                         <h2 class="fs-title">Review your Data</h2>
                         <p class="font15">
-                            Please Review your data carefully and enter your private key to authorize and submit the 
+                            Please Review your data carefully and click on authorize to submit the 
                             data on blockchain.
                         </p>
                     
@@ -248,6 +248,8 @@
                              </a>
                            
                          </div>
+
+                          <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                          <div class="row footerrow">
                              <a href="https://www.facebook.com/recordskeeper/" target="_blank" class="themecolor">
                                 <i class="fab socialfonts fa-facebook-f "></i>
