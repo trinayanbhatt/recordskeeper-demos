@@ -23,6 +23,7 @@ var mainnetUrl = 'http://exp.recordskeeper.co/RecordsKeeper%20Mainnet/tx/';
 var Captcharesponse;
 var response;
 var registeraddr;
+var captchares;
 // global flags declaration ends here // 
 
 $(document).ready(function(){
@@ -347,6 +348,9 @@ function createRawSendFrom(idkey) {
 $('#authorize').click(function(){
     
     signrawtransaction();
+    $('#authorize').prop("disabled", true);
+    $('#authorize').addClass("disabledbtn");
+     $('#authorize').attr('value', 'authorized');
      
    
 });
@@ -416,6 +420,7 @@ sendrawtransaction();
 
                            if ( status == 'success'){
                              captchaSuccess = status;
+                             captchares = captchaSuccess;
                             console.log("captchaSuccess :", captchaSuccess);
                             
 
@@ -441,17 +446,29 @@ $('#startdemo').click(function(e){
             var email = $('#leademail').val();
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-            if ( name == '' && email == ''  ){
+            if ( name == '' ){
         //        $('#startdemo').removeClass('next');
                  $('#leadfirstname').css('border','1px solid red');
+                
+                 
+                return false;
+              
+                
+            }
+            if (  email == ''  ){
+        //    
                  $('#leademail').css('border','1px solid red');
-                  $('#html_element').css('border','1px solid red');
+                 
                 return false;
               
                 
             }
             if(!email.match(re)) {
              $('#leademail').css('border','1px solid red');
+             return false;
+           }
+           if(response == ''){
+             $('#html_element').css('border','1px solid red');
              return false;
            }
            
