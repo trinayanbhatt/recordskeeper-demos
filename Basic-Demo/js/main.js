@@ -18,7 +18,7 @@ var pubkey1;
 var dataHex;
 var globe;
  var jsondata;
-var testnetUrl = 'http://test-exp.recordskeeper.co/RecordsKeeper%20Testnet/tx/';
+var testnetUrl = 'http://test-explorer.recordskeeper.co/RecordsKeeper%20Testnet/tx/';
 var mainnetUrl = 'http://exp.recordskeeper.co/RecordsKeeper%20Mainnet/tx/';
 var Captcharesponse;
 var response;
@@ -30,6 +30,7 @@ $(document).ready(function(){
          // Animate loader off screenvae=
     
            $(".se-pre-con").fadeOut("slow");  // fadeout the preloader
+          
 
 
      
@@ -45,12 +46,18 @@ window.onload = function() {
         $recaptcha.setAttribute("required", "required");
     }
    
+
 };
 
 
 
+
 $('#createkeypair').click(function(){
+
     CreateKeyPairs(); 
+    $("#downloadlink").click();
+    
+
     
      
 });
@@ -64,13 +71,25 @@ function CreateKeyPairs() {
     data:{action:'get_address'},
     success:function(Response) {
         var x = Response;
+
+         
+         
+
         x = JSON.parse(x);
+
          jsondata = x.result[0];
+
+        
+
+
+
         CONSOLE_DEBUG && console.log('result in json format keys:', jsondata);
-              pubaddr = x.result[0].address;   //public address here 
-             privkey1 = x.result[0].privkey;    // privkey here
-             pubkey1 = x.result[0].pubkey;
-         CONSOLE_DEBUG && console.log('privkey', privkey1);  
+
+              pubaddr = x.result[0].address;       //public address here 
+              privkey1 = x.result[0].privkey;     // privkey here
+              pubkey1 = x.result[0].pubkey;      // get public key here
+
+        CONSOLE_DEBUG && console.log('privkey', privkey1);  
         CONSOLE_DEBUG && console.log('result address :', pubaddr);
         CONSOLE_DEBUG && console.log('result key :', pubkey1);
         localStorage.setItem("public address", pubaddr);
@@ -80,6 +99,11 @@ function CreateKeyPairs() {
         
         
         ///////////////
+         var dataStr = "data:text/json;charset=utf-8," + ('{'+'"xrk_address"'+":"+'"'+pubaddr+'"'+","+'"xrk_key"'+":"+'"'+privkey1+'"'+'}');
+          var dlAnchorElem = document.getElementById('downloadlink');
+          dlAnchorElem.setAttribute("href",     dataStr     );
+          dlAnchorElem.setAttribute("download", "Recordskeeper-wallet.json");
+          dlAnchorElem.click();
       
         (function () {
             var textFile = null,
@@ -98,19 +122,26 @@ function CreateKeyPairs() {
               };
 
  
-              var create = document.getElementById('create'),
+                var create = document.getElementById('create'),
                 textbox = document.getElementById(privkey1);
 
 
                 var link = document.getElementById('downloadlink');
-                link.href = makeTextFile("{ 'Public Address' : " +"'"+ pubaddr+"'"+", " + "\n 'private key' :" +"'"+ privkey1 +"'"+", " +"\n 'public key' : " +"'"+ pubkey1+"'" +", " +"\n }" );
+                link.href = makeTextFile('{'+'"xrk_address"'+":"+'"'+pubaddr+'"'+","+'"xrk_key"'+":"+'"'+privkey1+'"'+'}');
                 link.style.display = 'block';
+
  
         })();
         
-        //////////////
+        ////////////// self - invoking function
+
+
+
+       
+
     }
-    });
+
+    }); 
 }
 // toHex() function here that converts any string toHex
 // Params : str 

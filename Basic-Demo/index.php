@@ -294,7 +294,7 @@
         <p id ="modalshowkey">
           
         </p>
-           <a download="Recordskeeper-wallet-key.json" id="downloadlink" >Download</a>
+           <a download="Recordskeeper-wallet-key.json" id="downloadlink" download>Download</a>
 <!--         <button id="create">Create file</button> <a download="Privkey.txt" id="downloadlink" >Download</a>-->
       </div>
       <div class="modal-footer">

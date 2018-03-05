@@ -126,12 +126,14 @@ i.fa.fa-fw.fa-eye.field-icon.toggle-password{
     margin-right: 10px;
 }
 .errorContainer{
-        background: #7f90a3;
+      background: #2d962fe0;
     color: white;
     font-size: 17px;
     padding: 10px;
     border-radius: 4px;
     display: none;
+    font-weight: 600;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 }
 .errorContainer p{
         margin-bottom: 0px;
@@ -321,12 +323,21 @@ body {
     font-weight: 400;
 
 }
+i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
+    font-size: 25px;
+    margin-top: -47px;
+    margin-right: 10px;
+}
 .datacontainer{
-        width: 82%;
+    width: 82%;
     margin: 0 auto;
     background: #eceaea;
     padding: 20px;
     display: none;
+    font-weight: 600;
+}
+#downloadlink{
+    width: 80px;
 }
 .mtb5{
         margin-top: 5px;

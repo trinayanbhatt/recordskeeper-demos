@@ -1,4 +1,6 @@
-.DS_Store
+*.DS_Store
 config.php
 Basic-Demo/php/config.php
 /Basic-Demo/php/config.php
+Basic-Demo/.DS_Store
+Basic-Demo/images/.DS_Store
