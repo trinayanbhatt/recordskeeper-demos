@@ -336,6 +336,7 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
     display: none;
     font-weight: 600;
 }
+
 #downloadlink{
     width: 80px;
 }
@@ -415,6 +416,14 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
 .standfont{
     font-size: 14px;
 }
+.urldiv{
+        width: 100%;
+    overflow-x: scroll;
+}
+.disabledbtn{
+    background: #989898 !important;
+    /*cursor:  none !important;*/
+}
 
 
 @media only screen and (max-width: 900px)
@@ -443,6 +452,9 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
     margin-left: 10px;
     margin-right: 10px;
 }
-    
+    .intro{
+        width: 33px !important;
+    overflow: hidden;
+}
     
 }

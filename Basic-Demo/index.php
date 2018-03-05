@@ -50,7 +50,7 @@
                 <form id="msform">
                     <!-- progressbar -->
                     <ul id="progressbar">
-                        <li class="active">Introduction</li>
+                        <li class="active intro">Introduction</li>
                         <li>Get XRK </li>
                         <li>CREATE RECORD</li>
                         <li>Review RECORD</li>
@@ -131,11 +131,11 @@
                         <div>
                             <div class="row errorContainer">
                                 <p>Your Record has been successfully published !!</p>
-                                <div class="">
+                                <div class="urldiv">
                                    <span class="transid" >Transaction ID: </span>
                                    <span class="transactionid"> # </span>
                                 </div>
-                                 <div class="">
+                                 <div class="urldiv">
                                    <span id="transurl">Transaction URL : </span>
 <!--                                    <span class="mts"></span>-->
                                    <div><a class="transactionid transactionUrl" target="_blank"> </a></div>
