@@ -17,7 +17,8 @@ var  pubaddr;
 var pubkey1;
 var dataHex;
 var globe;
- var jsondata;
+var jsondata;
+
 var testnetUrl = 'http://test-explorer.recordskeeper.co/RecordsKeeper%20Testnet/tx/';
 var mainnetUrl = 'http://exp.recordskeeper.co/RecordsKeeper%20Mainnet/tx/';
 var Captcharesponse;
