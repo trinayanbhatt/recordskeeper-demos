@@ -73,7 +73,7 @@
                          <li>Thank You</li>
                     </ul>
                      <!-- fieldsets -->
-                    <fieldset>
+                    <fieldset >
                         <h2 class="fs-title">Secure your data by uploading it on Recordskeeper </h2>
                             <h3 class="fs-subtitle">Let's learn How to upload your confidential  data on Recordskeeper        Blockchain in just few clicks.
                                 
@@ -98,7 +98,7 @@
                     </fieldset>
                     
                     <!-- fieldsets -->
-                    <fieldset>
+                    <fieldset id="fieldset1">
                         <h2 class="fs-title">Get XRK Token</h2>
                             <p class="font15">
                                 If you don't have XRK wallet which you need to upload data on Recordskeeper Blockchain then you can 
@@ -194,7 +194,7 @@
                                 
                            
                         </div>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
                         <input type="button" name="authorize" class=" action-button width200" value="Publish" id="authorize"/> 
                          <input type="button" name="next" class="next action-button width200" value="Next" id="authnext"/> 
                     </fieldset>
@@ -230,7 +230,7 @@
                                 
                            
                         </div>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
                         <input type="button" name="next" class=" action-button width200" value="Retrieve" id="retrieve"/> 
                         <input type="button" name="next" class="next action-button width200" value="Next" id="retrnext"/> 
                         
@@ -287,7 +287,22 @@
             </div>
         </div>
 <!-- /.MultiStep Form -->
+
+    
+
     </div>
+    <footer id="footer">
+<ul>
+<li> &copy; RecordsKeeper <span class="date">2018</span></li>
+<li><a href="./" target="_blank">Terms</a></li>
+<li><a href="./" target="_blank">Privacy Policy</a></li>
+<li><a href="http://explorer.recordskeeper.co/" target="_blank">Mainnet Explorer</a></li>
+<li><a href="http://test-explorer.recordskeeper.co/" target="_blank">Testnet Explorer</a></li>
+<li><a href="http://faucet.recordskeeper.co/" target="_blank">Faucet</a></li>
+<li><a href="http://stats.recordskeeper.co/" target="_blank">Stats</a></li>
+<li><a href="http://demo.recordskeeper.co/" target="_blank">Demo</a></li>
+</ul>
+</footer>
 
 <!--      modal box here -->
 <!-- Modal -->
