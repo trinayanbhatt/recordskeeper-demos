@@ -16,6 +16,9 @@ h2.fs-title.mtop10 {
 .simg{
     width: 64px;
 }
+#logo {
+    margin-left: 20px;
+}
 #logo img{
 	    width: 275px;
     margin-top: 7px;
@@ -25,6 +28,17 @@ h2.fs-title.mtop10 {
         font-size: 25px;
     margin-left: 10px;
     margin-right: 10px;
+}
+#nav > ul {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 9px 0 0;
+    margin-right: 22px;
+}
+#togglecont {
+    margin-top: 12px;
+    float: left;
 }
 .footerrow{
     margin-top: 35px;
@@ -418,13 +432,19 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
 }
 .urldiv{
         width: 100%;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    word-wrap: break-word;
 }
 .disabledbtn{
     background: #989898 !important;
     /*cursor:  none !important;*/
 }
-
+#skip{ display: none; }
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 80px;
+}
 
 @media only screen and (max-width: 900px)
 {
@@ -457,4 +477,23 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
     overflow: hidden;
 }
     
+}
+
+
+@media only screen and (max-width: 458px){
+        #togglecont {
+            margin-top: 9px;
+            float: left;
+            margin-left: 36px;
+        }
+        #nav {
+        right: 20px;
+    margin-top: 10px;
+    background: #54b2ce;
+    position: initial;
+    text-align: right;
+    height: 45px;
+    }
+
+
 }

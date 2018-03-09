@@ -1,5 +1,10 @@
 <?php
-$config = include('config.php');
+$net = $_POST['net'];
+if ($net == 'TestNetwork'){
+$config = include('config-testnet.php');}
+else {
+  $config = include('config-mainnet.php');
+}
 $chain = $config['chain'];
 $fromaddress = $config['fromaddress'];
 $coin = $config['coin'];

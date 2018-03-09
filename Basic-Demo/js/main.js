@@ -18,7 +18,8 @@ var pubkey1;
 var dataHex;
 var globe;
 var jsondata;
-
+var net = localStorage.getItem("network");
+var captchaSuccess;
 var testnetUrl = 'http://test-explorer.recordskeeper.co/RecordsKeeper%20Testnet/tx/';
 var mainnetUrl = 'http://exp.recordskeeper.co/RecordsKeeper%20Mainnet/tx/';
 var Captcharesponse;
@@ -33,11 +34,53 @@ $(document).ready(function(){
     
            $(".se-pre-con").fadeOut("slow");  // fadeout the preloader
           
+if(net == "MainNetwork"){
+                  $('#top').css('background', '#22283a');
+                  $('#top').css('color', '#ffffff');
+                  $('.tgl-light').prop('checked', true);
+                 
+                   $('#togglecontlabel').text('Main Network');
+            }
+            else if(net == "TestNetwork"){
 
+                 $('#top').css('background', '#54b2ce');
+                 $('#togglecontlabel').text('Test Network');
+            }
+            else{
+                net == "TestNetwork";
+                localStorage.setItem("network", "TestNetwork");
+            }
+networkToggle();
 
      
 });
- 
+ function ToggleNetwork(){
+        if($('#cb1').is(':checked'))
+            {
+             net = "TestNetwork";
+               localStorage.setItem("network", "TestNetwork");
+                $('#top').css('background', '#54b2ce');
+                 $('#togglecontlabel').text('Test Network');
+                 window.location.href = "index.php";
+              
+            }
+            else
+            {
+                net = "MainNetwork";
+               localStorage.setItem("network","MainNetwork");
+                
+                 $('#top').css('background', '#22283a');
+                  $('#top').css('color', '#ffffff');
+                 
+                   $('#togglecontlabel').text('Main Network');
+                   window.location.href = "index.php";
+            }
+    }
+    function networkToggle(){
+  $('.tgl-btn').click(function(){
+        ToggleNetwork();
+    });
+}
 
 
 window.onload = function() {
@@ -56,7 +99,7 @@ window.onload = function() {
 
 $('#createkeypair').click(function(){
 
-    CreateKeyPairs(); 
+    CreateKeyPairs(net); 
     $("#downloadlink").click();
     
 
@@ -66,25 +109,27 @@ $('#createkeypair').click(function(){
 // CreateKeyPairs function here that makes a post request to sendwithdata.php
 //params : NULL
 // get_address
-function CreateKeyPairs() {
+function CreateKeyPairs(net) {
+    var netw = net;
     $.ajax({
     type: "POST",
     url: 'php/createkeypairs.php',
-    data:{action:'get_address'},
+    data:{net: netw},
     success:function(Response) {
         var x = Response;
-
-         
-         
-
         x = JSON.parse(x);
-
+        var y = x.error;
+        if(y != null){
+            swal({
+                    title:'Something went wrong! <br> Please try again!!!',
+                    type: 'error',
+                    confirmButtonClass: "btn-danger",
+  confirmButtonText: "OK!",
+                    timer: 15000
+            });
+        }
+        else{
          jsondata = x.result[0];
-
-        
-
-
-
         CONSOLE_DEBUG && console.log('result in json format keys:', jsondata);
 
               pubaddr = x.result[0].address;       //public address here 
@@ -94,7 +139,7 @@ function CreateKeyPairs() {
         CONSOLE_DEBUG && console.log('privkey', privkey1);  
         CONSOLE_DEBUG && console.log('result address :', pubaddr);
         CONSOLE_DEBUG && console.log('result key :', pubkey1);
-        localStorage.setItem("public address", pubaddr);
+        localStorage.setItem("pubaddr", pubaddr);
         document.getElementById('registerd').value = pubaddr;
         document.getElementById('modalshowaddress').innerHTML = 'Public Address : '+ pubaddr;
         document.getElementById('modalshowkey').innerHTML = 'Private Key : ' + privkey1;
@@ -133,14 +178,11 @@ function CreateKeyPairs() {
                 link.style.display = 'block';
 
  
-        })();
+        });
         
-        ////////////// self - invoking function
+        ////////////// self - invoking function  
 
-
-
-       
-
+    }
     }
 
     }); 
@@ -185,7 +227,7 @@ $('#retrieve').click(function(){
   else{
 
      var key1 = document.getElementById('regist').value;
-    liststreamData(key1);
+    liststreamData(key1,net);
 
   }
 
@@ -197,12 +239,13 @@ $('#retrieve').click(function(){
 // retrivedata function here that makes a post request to liststreamdata.php
  //params : NULL
 // get_address
-function sendrawtransaction() {
+function sendrawtransaction(netw) {
+    var local = netw;
     var ab = globe;
     $.ajax({
     type: "POST",
     url: 'php/sendrawtransaction.php',
-    data:({tx_hex: ab}),
+    data:({tx_hex: ab, net: local}),
     success:function(Response) {
 
         var x = Response;
@@ -210,25 +253,44 @@ function sendrawtransaction() {
           x = x.result;
         CONSOLE_DEBUG && console.log('sendraw transation format :', x);
         $('.transactionid').text(x);
+        if(local == "TestNetwork"){
         Url = testnetUrl + x;
+    }
+    else if(local == "MainNetwork")
+    {
+        Url = mainnetUrl + x;
+    }
         console.log("Url",Url);
         $('.transactionUrl').text(Url);
         $('.transactionUrl').attr("href", Url)
         $('#authnext').prop("disabled", false);
     }
+    
 });
 }
 
-function liststreamData(key1) {
+function liststreamData(key1, netw) {
+    var local = netw;
     var ac = key1;
     $.ajax({
     type: "POST",
     url: 'php/liststreamdata.php',
-    data:({key: ac}),
+    data:({key: ac, net: local}),
     success:function(Response) {
         var x = Response;
         x = JSON.parse(x);
     //  x = x.result;
+    var y = x.error;
+    if (y != null){
+        swal({
+                    title:'Sorry, no Data was published with the specified Key identifier!',
+                    type: 'error',
+                    confirmButtonClass: "btn-danger",
+  confirmButtonText: "OK!",
+                    timer: 15000
+            });
+    }
+    else{
     var p = x.result[0].publishers[0];
     var q = hex2a(x.result[0].data);
     $('#publisheraddress').text(p);
@@ -239,7 +301,7 @@ function liststreamData(key1) {
            console.log(p);
          $(".datacontainer").css("display", "block");
     }
-       
+    }  
     });
 }
 
@@ -249,25 +311,39 @@ function liststreamData(key1) {
 // 
     $('#firstNext').click(function(){
         pubaddr = document.getElementById('registerd').value;
-                  importAddress();
+        localStorage.setItem("pubaddr",pubaddr);
+                  importAddress(net);
 //             
             });
 
-function importAddress() {
+function importAddress(netw) {
+    var local = netw;
     var a = pubaddr;
     $.ajax({
        type: "POST",
        url: 'php/importaddress.php',
-       data:({public: a}),
+       data:({public: a, net: local}),
         success:function(Response) {
             var x = Response;
             x = JSON.parse(x);
+            var y = x.error;
+            console.log("value here : ",y);
+            if (y != null){
+            swal({
+                    title:'We were unable to move on further with this Address of yours.',
+                    type: 'error',
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "OK!",
+                    timer: 15000
+            });
+            }
+            else{
         //  x = x.result;
             CONSOLE_DEBUG && console.log('importaddress result :', x);
 //            x.result[0].
-sendCoins();
+sendCoins(local);
         }
-        
+        } 
     });
 
 
@@ -279,19 +355,22 @@ sendCoins();
   // importAddress() function here that makes a post request to importaddress.php
  //params : NULL
 // 
-function sendCoins() {
+function sendCoins(netw) {
+    var local = netw;
     var b = pubaddr;
     $.ajax({
        type: "POST",
        url: 'php/sendcoins.php',
-       data:{addr: b},
+       data:{addr: b, net: local},
         success:function(Response) {
             var x = Response;
             x = JSON.parse(x);
         //  x = x.result;
+      
             CONSOLE_DEBUG && console.log('coins sent status :', x);
 //            x.result[0].
         }
+        
     });
 }
 $(".toggle-password").click(function() {
@@ -318,40 +397,54 @@ $('#textareaBtn').click(function(){
         console.log(document.getElementById('password-field').value);
         console.log(privkey1);
 
-        var publicAddress = localStorage.getItem("public address");
+        var publicAddress = localStorage.getItem("pubaddr");
         console.log("y", publicAddress);
         
         $('#reviewAddress').text(publicAddress);
         $('#reviewKey').text(idkey);
         $('#reviewData').text(data);
         hexData = toHex(data);
-        createRawSendFrom(idkey);        
+        createRawSendFrom(idkey, net);        
     });
-function createRawSendFrom(idkey) {
+function createRawSendFrom(idkey, netw) {
+    var local = netw;
     var aa = pubaddr;
     var ab = idkey;
     var ac = hexData;
     $.ajax({
        type: "POST",
        url: 'php/createrawsendfrom.php',
-       data:{from: aa, key: ab, val: ac},
+       data:{from: aa, key: ab, val: ac, net: local},
         success:function(Response) {
             var x = Response;
             x = JSON.parse(x);
+            var y = x.error;
+            console.log(y);
+            if (y != null){
+swal({
+                    title:'Data is too large for you current Address balance. <br> Kindly get more XRK or try with small data!',
+                    type: 'error',
+                    confirmButtonClass: "btn-danger",
+  confirmButtonText: "OK!",
+                    timer: 15000
+            });
+            }
+            else{
         //  x = x.result;
         globe = x.result;
             CONSOLE_DEBUG && console.log('create raw send from:', globe);
 //            x.result[0].
+        }
         }
     });
 }
 
 $('#authorize').click(function(){
     
-    signrawtransaction();
+    signrawtransaction(net);
     $('#authorize').prop("disabled", true);
     $('#authorize').addClass("disabledbtn");
-     $('#authorize').attr('value', 'authorized');
+     $('#authorize').attr('value', 'Published');
      
    
 });
@@ -361,26 +454,37 @@ $('#authnext').click(function(){
 });
 
 
-function signrawtransaction(){
+function signrawtransaction(netw){
      var aa = privkey1;
     var ab = globe;
-  
+  var local = netw;
     $.ajax({
        type: "POST",
        url: 'php/signrawtransaction.php',
-       data:{from: globe, key: aa},
+       data:{from: globe, key: aa, net: local},
         success:function(Response) {
             var x = Response;
             x = JSON.parse(x);
+            var y = x.error;
+            if (y != null){
+swal({
+                    title:'Private Key entered is Incorrect. Please try again!',
+                    type: 'error',
+                    confirmButtonClass: "btn-danger",
+  confirmButtonText: "OK!",
+                    timer: 15000
+            });
+            }
+            else{
         //  x = x.result;
         globe = x.result.hex;
             CONSOLE_DEBUG && console.log('sign raw:', globe);
 //            x.result[0].
-sendrawtransaction();
+sendrawtransaction(net);
 
              $(".errorContainer").css("display", "block");
 //                $(".errorContainer").fadeOut();
-           
+            }
         }
     });
 
@@ -468,10 +572,10 @@ $('#startdemo').click(function(e){
              $('#leademail').css('border','1px solid red');
              return false;
            }
-           if(response == ''){
-             $('#html_element').css('border','1px solid red');
-             return false;
-           }
+            if(captchaSuccess == undefined){
+              $("#html_element").css('border', '1px solid #ea2121');
+              return false;
+            } 
            
             else{
 
@@ -600,7 +704,7 @@ $('#textareaBtn').click(function(e){
    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 
-          if( idkey == '' || rcdata == '' || rcpass == ''){
+          if( idkey == '' || rcdata == '' ){
 
             $('#idkey').css('border','1px solid red');
             $('#dataTextarea').css('border','1px solid red');

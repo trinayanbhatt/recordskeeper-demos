@@ -16,6 +16,7 @@
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href = "css/style.css" rel="stylesheet">
+    <link href = "css/toggle.css" rel="stylesheet">
    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 
@@ -28,18 +29,32 @@
 
  <!-- header here  -->
    			<header id="top">
-				<p id="logo">
-					<img src="images/logo.png">
-				</p>
-				<nav id="skip">
-					
-				</nav>
-				<nav id="nav">
-					<ul>
-<!--						<label id="togglecontlabel">TestNetwork</label>-->
-					</ul>	
-				</nav>
-			</header>
+            <p id="logo">
+              <a href="./">
+              <img src="images/logo.png">
+              </a>
+            </p>
+            <nav id="skip">
+              <ul>
+                <li><a href="#nav" accesskey="n">Skip to navigation (n)</a></li>
+                <li><a href="#content" accesskey="c">Skip to content (c)</a></li>
+                <li><a href="#footer" accesskey="f">Skip to footer (f)</a></li>
+              </ul>
+            </nav>
+            <nav id="nav">
+              <ul>
+                
+                <div id="togglecont">
+                  <input class="tgl tgl-light" id="cb1" type="checkbox"/>
+                      <label class="tgl-btn" for="cb1"></label>
+                </div>
+                <span >
+                  <label id="togglecontlabel">TestNetwork</label>
+                </span>   
+              
+               </ul>
+             </nav>
+        </header>
 <!-- header ends here  -->
 
     <!-- Page Content -->
@@ -53,7 +68,7 @@
                         <li class="active intro">Introduction</li>
                         <li>Get XRK </li>
                         <li>CREATE RECORD</li>
-                        <li>Review RECORD</li>
+                        <li>Publish RECORD</li>
                         <li>Retrieve RECORD</li>
                          <li>Thank You</li>
                     </ul>
@@ -113,11 +128,7 @@
                             Enter your data, which may be in any format like JSON, digest, hexcode, text, e.t.c.
                         </p>
                         <textarea placeholder="Enter your Data" rows="10" id="dataTextarea"></textarea>
-                        <p class="font15">
-                            Enter your private key
-                        </p>
-                        <input id="password-field" type="password" name="password" placeholder="Enter your private key" value="">
-                        <i toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></i>
+                        
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                         <input type="button" name="next" class="next action-button" value="Next"/ id="textareaBtn" >
                     </fieldset>
@@ -172,6 +183,11 @@
                                         <span class="font15 themecolor balancespan"> </span>
                                     </p>
                                 </div>
+                                <p class="font15">
+                                    Enter your private key
+                                  </p>
+                                  <input id="password-field" type="password" name="password" placeholder="Enter your private key" value="">
+                                  <i toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></i>
                             </div>
                             
                            
@@ -179,7 +195,7 @@
                            
                         </div>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="authorize" class=" action-button width200" value="Authorize" id="authorize"/> 
+                        <input type="button" name="authorize" class=" action-button width200" value="Publish" id="authorize"/> 
                          <input type="button" name="next" class="next action-button width200" value="Next" id="authnext"/> 
                     </fieldset>
                     <fieldset>

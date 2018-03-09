@@ -1,5 +1,10 @@
 <?php
-$config = include('config.php');
+$net = $_POST['net'];
+if ($net == 'TestNetwork'){
+$config = include('config-testnet.php');}
+else {
+  $config = include('config-mainnet.php');
+}
 $chain = $config['chain'];
 $curl = curl_init();
 $tx_hex = $_POST['from'];
