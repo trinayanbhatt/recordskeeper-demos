@@ -13,8 +13,8 @@
   margin: 0 2em;
 }
 
-#togglecont{
-    margin-top: 12px;
+#togglecont {
+    margin-top: 7px;
     float: left;
 }
 #togglecontlabel{
@@ -38,16 +38,16 @@
   background: none;
 }
 .tgl + .tgl-btn {
-  outline: 0;
-  display: block;
-  width: 4em;
-  height: 2em;
-  position: relative;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+    outline: 0;
+    display: block;
+    width: 6em;
+    height: 3em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
   position: relative;
