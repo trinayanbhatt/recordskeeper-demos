@@ -247,19 +247,19 @@
                         
                          <h3 class="fs-subtitle">Explore more about us .</h3>
                          <div class="row">
-                            <a class="acolor" href="http://main-exp.recordskeeper.co/">
+                            <a class="acolor" target="_blank" href="http://main-exp.recordskeeper.co/">
                                 <div class="">Recordskeeper Mainnet Explorer</div>
                              </a>
-                              <a class="acolor" href="http://main-exp.recordskeeper.co/">
+                              <a class="acolor" target="_blank" href="http://main-exp.recordskeeper.co/">
                                 <div class="">Recordskeeper Testnet Explorer</div>
                              </a>
-                              <a class="acolor" href="http://faucet.recordskeeper.co//">
+                              <a class="acolor" target="_blank" href="http://faucet.recordskeeper.co//">
                                 <div class="">Recordskeeper Faucet</div>
                              </a>
-                              <a class="acolor" href="http://wallet.recordskeeper.co/">
+                              <a class="acolor" target="_blank" href="http://wallet.recordskeeper.co/">
                                 <div class="">Recordskeeper Wallet </div>
                              </a>
-                              <a class="acolor" href="http://stats.recordskeeper.co/">
+                              <a class="acolor" target="_blank" href="http://stats.recordskeeper.co/">
                                 <div class="">Recordskeeper Stats</div>
                              </a>
                            
