@@ -150,8 +150,16 @@ function CreateKeyPairs(net) {
          var dataStr = "data:text/json;charset=utf-8," + ('{'+'"xrk_address"'+":"+'"'+pubaddr+'"'+","+'"xrk_key"'+":"+'"'+privkey1+'"'+'}');
           var dlAnchorElem = document.getElementById('downloadlink');
           dlAnchorElem.setAttribute("href",     dataStr     );
-          dlAnchorElem.setAttribute("download", "Recordskeeper-wallet.json");
-          dlAnchorElem.click();
+
+                if(net == "MainNetwork"){
+                     dlAnchorElem.setAttribute("download", "Recordskeeper-wallet.json");
+                     dlAnchorElem.click();
+                 }else if (net == "TestNetwork"){
+
+                   dlAnchorElem.setAttribute("download", "Recordskeeper-test-wallet.json");
+                     dlAnchorElem.click();
+                 }
+               
       
         (function () {
             var textFile = null,
