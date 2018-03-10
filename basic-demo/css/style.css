@@ -1,9 +1,10 @@
 #footer {
-       position: absolute;
+    /* position: absolute; */
     z-index: 1;
     padding: 0 0 0 20px;
     bottom: -50px;
     font-size: 12px;
+    margin-top: 140px;
 }
 #footer ul {
     overflow: hidden;
@@ -489,6 +490,15 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
             margin: 0 0%;
             position: relative;
         }
+        #footer {
+    /* position: absolute; */
+    z-index: 1;
+    padding: 0 0 0 20px;
+    bottom: -50px;
+    font-size: 12px;
+    margin-top: 80px;
+}
+
 }
 
 @media only screen and (max-width: 640px){
@@ -502,6 +512,14 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
     .intro{
         width: 33px !important;
     overflow: hidden;
+}
+#footer {
+    /* position: absolute; */
+    z-index: 1;
+    padding: 0 0 0 20px;
+    bottom: -50px;
+    font-size: 12px;
+    margin-top: 80px;
 }
     
 }
