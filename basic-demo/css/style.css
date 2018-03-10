@@ -46,7 +46,7 @@ h2.fs-title.mtop10 {
     margin-left: 20px;
 }
 #logo img{
-	    width: 275px;
+        width: 275px;
     margin-top: 7px;
     margin-left: 15px;
 }
@@ -116,7 +116,7 @@ h2.fs-title.mtop10 {
 }
 
 .faucetcontainer{
-	margin-top : 6%;
+    margin-top : 6%;
 }
 .field-icon {
   float: right;
@@ -126,7 +126,7 @@ h2.fs-title.mtop10 {
   z-index: 2;
 }
 #togglecontlabel{
-	font-size: 15px;
+    font-size: 15px;
     font-weight: 400;
     margin-top:15px;
 }
@@ -152,7 +152,7 @@ body, textarea, input, select, option, button {
 }
 
 #send{
-	    background: #22283a;
+        background: #22283a;
     color: white;
 }
 #html_element{
@@ -450,7 +450,7 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
     position: absolute;
 }
 .newUser{
-	    width: 200px !important;
+        width: 200px !important;
     border-radius: 0px !important;
 }
 
@@ -475,9 +475,9 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
 
 @media only screen and (max-width: 900px)
 {
-		#nav {
-		    right: 20px;
-		}
+        #nav {
+            right: 20px;
+        }
         #msform fieldset {
             background: white;
             border: 0 none;
