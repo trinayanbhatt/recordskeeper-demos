@@ -21,7 +21,7 @@ var jsondata;
 var net = localStorage.getItem("network");
 var captchaSuccess;
 var testnetUrl = 'http://test-explorer.recordskeeper.co/RecordsKeeper%20Testnet/tx/';
-var mainnetUrl = 'http://exp.recordskeeper.co/RecordsKeeper%20Mainnet/tx/';
+var mainnetUrl = 'http://explorer.recordskeeper.co/RecordsKeeper%20Mainnet/tx/';
 var Captcharesponse;
 var response;
 var registeraddr;
@@ -54,6 +54,7 @@ networkToggle();
 
      
 });
+
  function ToggleNetwork(){
         if($('#cb1').is(':checked'))
             {
@@ -262,8 +263,11 @@ function sendrawtransaction(netw) {
     }
         console.log("Url",Url);
         $('.transactionUrl').text(Url);
-        $('.transactionUrl').attr("href", Url)
+        $('.transactionUrl').attr("href", Url);
+         $('#authnext').show();
+
         $('#authnext').prop("disabled", false);
+
     }
     
 });
@@ -612,10 +616,10 @@ $('#startdemo').click(function(e){
              $('#leademail').css('border','1px solid red');
              return false;
            }
-            // if(captchaSuccess == undefined){
-            //   $("#html_element").css('border', '1px solid #ea2121');
-            //   return false;
-            // } 
+            if(captchaSuccess == undefined){
+              $("#html_element").css('border', '1px solid #ea2121');
+              return false;
+            } 
            
             else{
 
@@ -852,6 +856,7 @@ $('#retrnext').click(function(){
                
         
                 $('#authnext').prop("disabled", true);
+                $('#authnext').hide();
 
 
                 $(".previous").click(function(){
@@ -914,5 +919,4 @@ var addr = $('#registerd').val();
                        importAddress(net);
           }
 });
-
 
