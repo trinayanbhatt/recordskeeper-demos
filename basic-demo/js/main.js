@@ -53,7 +53,7 @@ if(net == "MainNetwork"){
           networkToggle();
 
           $("#lastPrevious").click(function(){
-              $("#footer").css("margin-top", "450px");
+              $("#footer").css("margin-top", "600px");
           });
 
      
@@ -227,7 +227,7 @@ function hex2a(hexx) {
 
 $('#retrieve').click(function(){
     
-
+$('#table-one').find("tr:not(:first)").remove();
   var retrieveKey = $('#regist').val();
 
   if(retrieveKey == ''){
@@ -289,35 +289,54 @@ function liststreamData(key1, netw) {
     var local = netw;
     var ac = key1;
     $.ajax({
-    type: "POST",
-    url: 'php/liststreamdata.php',
-    data:({key: ac, net: local}),
-    success:function(Response) {
-        var x = Response;
-        x = JSON.parse(x);
-    //  x = x.result;
-    var y = x.error;
-    if (y != null){
-        swal({
-                    title:'Sorry, no Data was published with the specified Key identifier!',
-                    type: 'error',
-                    confirmButtonClass: "btn-danger",
-  confirmButtonText: "OK!",
-                    timer: 15000
-            });
-    }
-    else{
-    var p = x.result[0].publishers[0];
-    var q = hex2a(x.result[0].data);
-    $('#publisheraddress').text(p);
-        $('#savedkey').text(x.result[0].key);
-        $('#hexdata').text(q);
- 
-        CONSOLE_DEBUG && console.log('result in json format :', x);
-           console.log(p);
-         $(".datacontainer").css("display", "block");
-    }
-    }  
+          type: "POST",
+          url: 'php/liststreamdata.php',
+          data:({key: ac, net: local}),
+          success:function(Response) {
+              var x = Response;
+              x = JSON.parse(x);
+          
+              var y = x.error;
+              if (y != null){
+                  swal({
+                              title:'Sorry, no Data was published with the specified Key identifier!',
+                              type: 'error',
+                              confirmButtonClass: "btn-danger",
+                              confirmButtonText: "OK!",
+                              timer: 15000
+                      });
+              }
+              else{
+              // var p = x.result[0].publishers[0];
+              // var q = hex2a(x.result[0].data);
+              // $('#publisheraddress').text(p);
+              //     $('#savedkey').text(x.result[0].key);
+              //     $('#hexdata').text(q);
+           
+              //     CONSOLE_DEBUG && console.log('result in json format :', x);
+              //        console.log(p);
+              //      $(".datacontainer").css("display", "block");
+
+                   for(var i= 0; i < x.result.length; i++) {
+                      CONSOLE_DEBUG &&  console.log("valueof x",x.result[i] );
+                      var publisherAddr = x.result[i].publishers;
+                      var publisherData = hex2a(x.result[i].data);
+                      var publisherKey = x.result[i].key;
+
+
+                       CONSOLE_DEBUG &&  console.log("valueof publisherAddr", publisherAddr);
+                       CONSOLE_DEBUG &&  console.log("valueof publisherData", publisherData );
+                       CONSOLE_DEBUG &&  console.log("valueof publisherKey", publisherKey );
+
+
+                       $('.table-a').append("<tr><td  >"+publisherAddr+"</td>  <td  >"+publisherData+"</td> <td>"+publisherKey+"</td></tr>");
+
+
+
+                   }  
+
+              }
+          }  
     });
 }
 
@@ -810,8 +829,8 @@ $('#authnext').click(function(){
 $('#retrnext').click(function(){
   // ALERT('SDHFKSD');
 
-                      $("#footer").css("margin-top", "190px;");
-                     
+                      $('#footer').css("margin-top", "190px");
+                      
 
                       var current_fs, next_fs, previous_fs; //fieldsets
                       var left, opacity, scale; //fieldset properties which we will animate

@@ -194,7 +194,7 @@
                                 
                            
                         </div>
-                        <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                         <input type="button" name="authorize" class=" action-button width200" value="Publish" id="authorize"/> 
                          <input type="button" name="next" class="next action-button width200" value="Next" id="authnext"/> 
                     </fieldset>
@@ -224,6 +224,16 @@
                                          <div class="font13 text-left col-md-7 overx" id="hexdata"></div>
                                     </div>        
                                 </div>
+                                <div class="table-responsive"> 
+                                  <table class="table table-a" id="table-one"> 
+                                    <tr>
+                                      <th>Pulisher Address </th>
+                                      <th>Record Identifier Data </th>
+                                      <th> Record Identifier Key </th>
+                                    </tr>
+                                  </table>
+                                </div>
+                                
                             </div>
                            
                              

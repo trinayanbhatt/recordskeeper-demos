@@ -27,7 +27,23 @@
     text-align: center;
 }
 
+#table-one{
+    font-size: 12px;
+    width: 82%;
+    margin : 0 auto;
+    margin-top: 30px;
+    text-align: left;
+    max-height: 350px;
+    overflow: scroll;
+}
 
+#table-one th{
+        background: #54b2ce;
+        text-align: left;
+    background: #54b2ce;
+    color: white;
+    
+}
 #top {
     position: fixed;
     left: 0;
