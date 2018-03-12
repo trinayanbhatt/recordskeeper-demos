@@ -228,7 +228,13 @@ function hex2a(hexx) {
 $('#retrieve').click(function(){
     
 $('#table-one').find("tr:not(:first)").remove();
+$('#table-one').css("display", "table");
   var retrieveKey = $('#regist').val();
+
+  var streamLink = "https://test-explorer.recordskeeper.co//RecordsKeeper%20Testnet/keyitems/root/"+retrieveKey;
+  var streamTransId = "https://test-explorer.recordskeeper.co//RecordsKeeper%20Testnet/tx/";
+
+  $('#streamlink').attr("href", streamLink);
 
   if(retrieveKey == ''){
 
@@ -322,6 +328,7 @@ function liststreamData(key1, netw) {
                       var publisherAddr = x.result[i].publishers;
                       var publisherData = hex2a(x.result[i].data);
                       var publisherKey = x.result[i].key;
+                      var txid = x.result[i].txid;
                       var timestamp = x.result[i].time;
                       CONSOLE_DEBUG && console.log("timestamp", timestamp);
                       
@@ -342,8 +349,8 @@ function liststreamData(key1, netw) {
                        CONSOLE_DEBUG &&  console.log("valueof publisherKey", timestamp );
 
 
-                       $('.table-a').append("<tr><td  >"+publisherAddr+"</td>  <td  >"+publisherData+"</td> <td>"+year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds+"</td></tr>");
-
+                       $('.table-a').append("<tr><td  >"+publisherAddr+"</td>  <td id ='txid"+i+ "'><a id='aid"+i+ "' target = '_blank'> "+publisherData+" </a></td> <td>"+year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds+"</td></tr>");
+                       $('#aid'+i).attr("href", "https://test-explorer.recordskeeper.co//RecordsKeeper%20Testnet/tx/"+txid);
 
 
                    }  

@@ -225,6 +225,9 @@
                                     </div>        
                                 </div>
                                 <div class="table-responsive"> 
+                                  <div class="noteContainer">
+                                    <p>You can find all records related this key <a href="" target="_blank" id="streamlink"> here </a> in the explorer.</p>
+                                  </div>
                                   <table class="table table-a" id="table-one"> 
                                     <tr>
                                       <th>Pulisher Address </th>
