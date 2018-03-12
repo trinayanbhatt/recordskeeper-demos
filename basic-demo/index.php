@@ -229,7 +229,7 @@
                                     <tr>
                                       <th>Pulisher Address </th>
                                       <th>Record Identifier Data </th>
-                                      <th> Record Identifier Key </th>
+                                      <th class="tabletime"> Time </th>
                                     </tr>
                                   </table>
                                 </div>

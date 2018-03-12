@@ -322,14 +322,27 @@ function liststreamData(key1, netw) {
                       var publisherAddr = x.result[i].publishers;
                       var publisherData = hex2a(x.result[i].data);
                       var publisherKey = x.result[i].key;
+                      var timestamp = x.result[i].time;
+                      CONSOLE_DEBUG && console.log("timestamp", timestamp);
+                      
+                      var date = new Date(timestamp*1000);
+
+                      var year = date.getFullYear();
+                      var month = date.getMonth() + 1;
+                      var day = date.getDate();
+                      var hours = date.getHours();
+                      var minutes = date.getMinutes();
+                      var seconds = date.getSeconds();
+                      // alert(year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds);
+
 
 
                        CONSOLE_DEBUG &&  console.log("valueof publisherAddr", publisherAddr);
                        CONSOLE_DEBUG &&  console.log("valueof publisherData", publisherData );
-                       CONSOLE_DEBUG &&  console.log("valueof publisherKey", publisherKey );
+                       CONSOLE_DEBUG &&  console.log("valueof publisherKey", timestamp );
 
 
-                       $('.table-a').append("<tr><td  >"+publisherAddr+"</td>  <td  >"+publisherData+"</td> <td>"+publisherKey+"</td></tr>");
+                       $('.table-a').append("<tr><td  >"+publisherAddr+"</td>  <td  >"+publisherData+"</td> <td>"+year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds+"</td></tr>");
 
 
 
@@ -339,6 +352,9 @@ function liststreamData(key1, netw) {
           }  
     });
 }
+
+
+
 
 
 // importAddress() function here that makes a post request to importaddress.php

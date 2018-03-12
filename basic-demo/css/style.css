@@ -36,7 +36,16 @@
     max-height: 350px;
     overflow: scroll;
 }
-
+.tabletime{
+    width: 150px;
+}
+.table-responsive {
+    width: 100%;
+    /* margin-bottom: 15px; */
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+     border: none; 
+}
 #table-one th{
         background: #54b2ce;
         text-align: left;
