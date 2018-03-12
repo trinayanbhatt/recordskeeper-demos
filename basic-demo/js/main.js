@@ -245,7 +245,7 @@ $('#table-one').css("display", "table");
               streamLink = "https://explorer.recordskeeper.co//RecordsKeeper%20Mainnet/keyitems/root/"+retrieveKey;
               $('#streamlink').attr("href", streamLink);
 
-              $('#aid'+i).attr("href",  mainnetUrl+txid);
+             
               }
         else if(net == "TestNetwork"){
 
