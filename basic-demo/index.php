@@ -129,7 +129,7 @@
                         </p>
                         <textarea placeholder="Enter your Data" rows="10" id="dataTextarea"></textarea>
                         
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <input type="button" name="previous" class="previous action-button-previous recordPrevBtn" value="Previous" id="recordPrevBtn" />
                         <input type="button" name="next" class="next action-button" value="Next"/ id="textareaBtn" >
                     </fieldset>
                     <fieldset>
@@ -194,7 +194,7 @@
                                 
                            
                         </div>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" id="reviewPrev" />
                         <input type="button" name="authorize" class=" action-button width200" value="Publish" id="authorize"/> 
                          <input type="button" name="next" class="next action-button width200" value="Next" id="authnext"/> 
                     </fieldset>
@@ -226,11 +226,11 @@
                                 </div>
                                 <div class="table-responsive"> 
                                   <div class="noteContainer">
-                                    <p>You can find all records related this key <a href="" target="_blank" id="streamlink"> here </a> in the explorer.</p>
+                                    <p>You can find all records related to this key <a href="" target="_blank" id="streamlink"> here </a> .</p>
                                   </div>
                                   <table class="table table-a" id="table-one"> 
                                     <tr>
-                                      <th>Pulisher Address </th>
+                                      <th>Publisher Address </th>
                                       <th>Record Identifier Data </th>
                                       <th class="tabletime"> Date &amp; Time (UTC) </th>
                                     </tr>
@@ -279,6 +279,7 @@
                          </div>
 
                           <input type="button" name="previous" class="previous action-button-previous" value="Previous" id="lastPrevious" />
+                          <a href="./"><input type="button" name="restartDemo" class="" value="Restart Demo" id="restartDemo" /></a> 
                          <div class="row footerrow">
                              <a href="https://www.facebook.com/recordskeeper/" target="_blank" class="themecolor">
                                 <i class="fab socialfonts fa-facebook-f "></i>
@@ -304,18 +305,7 @@
     
 
     </div>
-    <footer id="footer">
-<ul>
-<li> &copy; RecordsKeeper <span class="date">2018</span></li>
-<li><a href="./" target="_blank">Terms</a></li>
-<li><a href="./" target="_blank">Privacy Policy</a></li>
-<li><a href="http://explorer.recordskeeper.co/" target="_blank">Mainnet Explorer</a></li>
-<li><a href="http://test-explorer.recordskeeper.co/" target="_blank">Testnet Explorer</a></li>
-<li><a href="http://faucet.recordskeeper.co/" target="_blank">Faucet</a></li>
-<li><a href="http://stats.recordskeeper.co/" target="_blank">Stats</a></li>
-<li><a href="http://demo.recordskeeper.co/" target="_blank">Demo</a></li>
-</ul>
-</footer>
+   
 
 <!--      modal box here -->
 <!-- Modal -->
@@ -349,6 +339,18 @@
   </div>
 </div>      
       
+<footer id="footer">
+          <ul>
+          <li> &copy; RecordsKeeper <span class="date">2018</span></li>
+          <li><a href="./" target="_blank">Terms</a></li>
+          <li><a href="./" target="_blank">Privacy Policy</a></li>
+          <li><a href="http://explorer.recordskeeper.co/" target="_blank">Mainnet Explorer</a></li>
+          <li><a href="http://test-explorer.recordskeeper.co/" target="_blank">Testnet Explorer</a></li>
+          <li><a href="http://faucet.recordskeeper.co/" target="_blank">Faucet</a></li>
+          <li><a href="http://stats.recordskeeper.co/" target="_blank">Stats</a></li>
+          <li><a href="http://demo.recordskeeper.co/" target="_blank">Demo</a></li>
+          </ul>
+</footer>
     <!-- Bootstrap core JavaScript -->
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -361,7 +363,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.all.min.js"></script>
 
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-        async defer>
+        async defer></script>
      
     
   </body>

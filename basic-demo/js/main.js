@@ -34,7 +34,7 @@ $(document).ready(function(){
     
            $(".se-pre-con").fadeOut("slow");  // fadeout the preloader
           
-if(net == "MainNetwork"){
+            if(net == "MainNetwork"){
                   $('#top').css('background', '#22283a');
                   $('#top').css('color', '#ffffff');
                   $('.tgl-light').prop('checked', true);
@@ -53,7 +53,11 @@ if(net == "MainNetwork"){
           networkToggle();
 
           $("#lastPrevious").click(function(){
-              $("#footer").css("margin-top", "600px");
+              $("#footer").css("margin-top", "859px");
+          });
+
+          $('.recordPrevBtn').click(function(){
+              $('footer').css("margin-top", "650px");
           });
 
      
@@ -350,7 +354,16 @@ function liststreamData(key1, netw) {
 
 
                        $('.table-a').append("<tr><td  >"+publisherAddr+"</td>  <td id ='txid"+i+ "'><a id='aid"+i+ "' target = '_blank'> "+publisherData+" </a></td> <td>"+year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds+"</td></tr>");
-                       $('#aid'+i).attr("href", "https://test-explorer.recordskeeper.co//RecordsKeeper%20Testnet/tx/"+txid);
+                      
+                       if(net == "MainNetwork"){
+                            $('#aid'+i).attr("href",  mainnetUrl+txid);
+                        }
+                        else if(net == "TestNetwork"){
+
+                                $('#aid'+i).attr("href", testnetUrl+txid);
+                        }
+
+                    
 
 
                    }  
@@ -482,6 +495,8 @@ $(".toggle-password").click(function() {
  //params : NULL
 // 
 $('#textareaBtn').click(function(){
+         $('footer').css("margin-top", "650px");
+
        var idkey = document.getElementById('idkey').value;
         console.log('idkey', idkey);
 //        localStorage.setItem("idkey", idkey);
@@ -536,6 +551,7 @@ swal({
 $('#authorize').click(function(){
    privkey1 = document.getElementById('password-field').value;
     signrawtransaction(net);
+    $('#reviewPrev').css("display", "none");
     // $('#authorize').prop("disabled", true);
     // $('#authorize').addClass("disabledbtn");
      // $('#authorize').attr('value', 'Published');
@@ -956,6 +972,7 @@ $('#retrnext').click(function(){
 
 $('#firstNext').click(function(){
 
+  $('#footer').css("margin-top", "400px");
 
 var addr = $('#registerd').val();
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -973,4 +990,6 @@ var addr = $('#registerd').val();
                        importAddress(net);
           }
 });
+
+
 

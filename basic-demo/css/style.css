@@ -36,6 +36,18 @@
     font-size: 13px;
 
 }
+#restartDemo{
+    width: 129px !important;
+    background: #54b2ce !important;
+    font-weight: bold !important;
+    color: white !important;
+    border: 0 none !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    padding: 10px 5px !important;
+    text-align: center !important;
+    margin: 10px 5px !important;
+}
 .table-responsive {
     width: 100%;
     /* margin-bottom: 15px; */
