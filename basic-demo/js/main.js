@@ -235,10 +235,27 @@ $('#table-one').find("tr:not(:first)").remove();
 $('#table-one').css("display", "table");
   var retrieveKey = $('#regist').val();
 
-  var streamLink = "https://test-explorer.recordskeeper.co//RecordsKeeper%20Testnet/keyitems/root/"+retrieveKey;
-  var streamTransId = "https://test-explorer.recordskeeper.co//RecordsKeeper%20Testnet/tx/";
+ var streamLink;
+ var streamTransId = "https://test-explorer.recordskeeper.co//RecordsKeeper%20Testnet/tx/";
 
-  $('#streamlink').attr("href", streamLink);
+        if(net == "MainNetwork")
+             {
+
+              
+              streamLink = "https://explorer.recordskeeper.co//RecordsKeeper%20Mainnet/keyitems/root/"+retrieveKey;
+              $('#streamlink').attr("href", streamLink);
+
+              $('#aid'+i).attr("href",  mainnetUrl+txid);
+              }
+        else if(net == "TestNetwork"){
+
+              streamLink = "https://test-explorer.recordskeeper.co//RecordsKeeper%20Testnet/keyitems/root/"+retrieveKey;
+                                $('#streamlink').attr("href", streamLink);
+               }
+   
+  
+
+  
 
   if(retrieveKey == ''){
 
