@@ -50,7 +50,11 @@ if(net == "MainNetwork"){
                 net == "TestNetwork";
                 localStorage.setItem("network", "TestNetwork");
             }
-networkToggle();
+          networkToggle();
+
+          $("#lastPrevious").click(function(){
+              $("#footer").css("margin-top", "450px");
+          });
 
      
 });

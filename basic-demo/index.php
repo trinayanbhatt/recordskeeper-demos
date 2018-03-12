@@ -265,7 +265,7 @@
                            
                          </div>
 
-                          <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                          <input type="button" name="previous" class="previous action-button-previous" value="Previous" id="lastPrevious" />
                          <div class="row footerrow">
                              <a href="https://www.facebook.com/recordskeeper/" target="_blank" class="themecolor">
                                 <i class="fab socialfonts fa-facebook-f "></i>
