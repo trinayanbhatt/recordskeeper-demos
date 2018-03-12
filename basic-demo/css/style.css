@@ -491,10 +491,9 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
             position: relative;
         }
         #footer {
-    /* position: absolute; */
+  
     z-index: 1;
-    padding: 0 0 0 20px;
-    bottom: -50px;
+    
     font-size: 12px;
     margin-top: 80px;
 }
@@ -504,7 +503,7 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
 @media only screen and (max-width: 640px){
     .leadinputs {
     height: 40px;
-/*    width: 68% !important;*/
+
     float: left;
     margin-left: 10px;
     margin-right: 10px;
@@ -514,10 +513,10 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
     overflow: hidden;
 }
 #footer {
-    /* position: absolute; */
+  
     z-index: 1;
-    padding: 0 0 0 20px;
-    bottom: -50px;
+ 
+  
     font-size: 12px;
     margin-top: 80px;
 }
