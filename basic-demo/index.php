@@ -114,7 +114,7 @@
                                 <input type="text" name = "registered" class=" " value="" placeholder="Enter your Address" id = "registerd"/>
                             </div>
                         
-                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                         <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
                         <input type="button" name="next" class="next action-button" value="Next" id="firstNext"/>
                     </fieldset>
                     <fieldset>
@@ -153,7 +153,7 @@
                                 </div>
                             </div>
                             <div class="row topbot25">
-                                <div class="col-md-3">
+                               <!--  <div class="col-md-3">
                                     <p class="font15 themecolor text-left">Address</p>
                                      <p class="font15 themecolor text-left"></p>
                                      <p class="font15 themecolor text-left">
@@ -182,6 +182,26 @@
                                         
                                         <span class="font15 themecolor balancespan"> </span>
                                     </p>
+                                </div> -->
+                                <div class="">
+                                  <div class="col-md-3 col-sm-5">
+                                    <p class="font15 themecolor text-left">Address</p>
+                                  </div>
+                                   <div class="col-md-9 col-sm-7">
+                                     <p class="font15 text-left" id="reviewAddress">  <span class="font15 themecolor balancespan"> </span> </p>
+                                   </div>
+                                   <div class="col-md-3 col-sm-5">
+                                    <p class="font15 themecolor text-left">Data Identifier Key</p>
+                                  </div>
+                                   <div class="col-md-9 col-sm-7">
+                                     <p class="font15 text-left" id="reviewKey">
+                                   </div>
+                                    <div class="col-md-3 col-sm-5">
+                                    <p class="font15 themecolor text-left">Data </p>
+                                  </div>
+                                   <div class="col-md-9 col-sm-7">
+                                     <p class="font15 text-left" id="reviewData">
+                                   </div>
                                 </div>
                                 <p class="font15">
                                     Enter your private key
@@ -260,19 +280,19 @@
                         
                          <h3 class="fs-subtitle">Explore more about us .</h3>
                          <div class="row">
-                            <a class="acolor" target="_blank" href="http://main-exp.recordskeeper.co/">
+                            <a class="acolor" target="_blank" href="https://explorer.recordskeeper.co/">
                                 <div class="">Recordskeeper Mainnet Explorer</div>
                              </a>
-                              <a class="acolor" target="_blank" href="http://main-exp.recordskeeper.co/">
+                              <a class="acolor" target="_blank" href="https://test-explorer.recordskeeper.co/">
                                 <div class="">Recordskeeper Testnet Explorer</div>
                              </a>
-                              <a class="acolor" target="_blank" href="http://faucet.recordskeeper.co//">
+                              <a class="acolor" target="_blank" href="https://faucet.recordskeeper.co//">
                                 <div class="">Recordskeeper Faucet</div>
                              </a>
-                              <a class="acolor" target="_blank" href="http://wallet.recordskeeper.co/">
+                              <a class="acolor" target="_blank" href="https://wallet.recordskeeper.co/">
                                 <div class="">Recordskeeper Wallet </div>
                              </a>
-                              <a class="acolor" target="_blank" href="http://stats.recordskeeper.co/">
+                              <a class="acolor" target="_blank" href="https://stats.recordskeeper.co/">
                                 <div class="">Recordskeeper Stats</div>
                              </a>
                            

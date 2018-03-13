@@ -1,10 +1,4 @@
 
-/////////////////////////////////
-   // Recordskeeper Faucet    //
-  // Adarsha  Jha            //
- // Toshblocks innovations  //
-/////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //declaring global flags here //
@@ -528,6 +522,7 @@ $('#textareaBtn').click(function(){
         
         $('#reviewAddress').text(publicAddress);
         $('#reviewKey').text(idkey);
+        $('#regist').val(idkey);
         $('#reviewData').text(data);
         hexData = toHex(data);
         createRawSendFrom(idkey, net);        
