@@ -104,6 +104,10 @@ td#txid0 {
        max-width: 200px;
     word-wrap: break-word;
 }
+p#reviewData {
+    width: 100%;
+    word-wrap: break-word;
+}
 #nav > ul {
     float: right;
     list-style: none;
