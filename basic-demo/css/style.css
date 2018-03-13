@@ -29,6 +29,12 @@
     overflow: scroll;
     display: none;
 }
+.createWalBtn{
+        background: black;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
 .tabletime{
     width: 150px;
 }
@@ -269,6 +275,10 @@ body {
     font-size: 13px;
 }
 
+button, html input[type=button], input[type=reset], input[type=submit]:focus{
+border: none;
+}
+
 #msform input:focus, #msform textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
@@ -297,7 +307,12 @@ body {
 
 #msform .action-button:hover, #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #22283a;
+    border: none;
 }
+
+
+
+
 
 #msform .action-button-previous {
     width: 100px;
@@ -310,6 +325,9 @@ body {
     padding: 10px 5px;
     margin: 10px 5px;
 }
+
+
+
 
 #msform .action-button-previous:hover, #msform .action-button-previous:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #989898;

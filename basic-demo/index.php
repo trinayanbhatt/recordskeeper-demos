@@ -323,16 +323,16 @@
           Please download your private key and save it at a safe place, you will need it for your trasactions.
           </p>
         <p id="modalshowaddress">
-<!--          <input type="text" value="" name="modalshowaddress" id="modalshowaddress">-->
+
         </p>
         <p id ="modalshowkey">
           
         </p>
            <a download="Recordskeeper-wallet-key.json" id="downloadlink" download>Download</a>
-<!--         <button id="create">Create file</button> <a download="Privkey.txt" id="downloadlink" >Download</a>-->
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default createWalBtn" data-dismiss="modal" >Close</button>
       </div>
     </div>
 
