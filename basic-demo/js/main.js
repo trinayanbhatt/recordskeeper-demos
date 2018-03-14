@@ -203,21 +203,28 @@ function CreateKeyPairs(net) {
 // Params : str 
 // return : hex 
 function toHex(str) {
-    var hex = '';
-    for(var i=0;i<str.length;i++) {
-        hex += ''+str.charCodeAt(i).toString(16);
+    var hex, i;
+
+    var result = "";
+    for (i=0; i<str.length; i++) {
+        hex = str.charCodeAt(i).toString(16);
+        result += ("000"+hex).slice(-4);
     }
-    return hex;
+
+    return result
 }
 // recordData() function here that converts any string toHex
 // Params : null 
 // return : none
 function hex2a(hexx) {
-    var hex = hexx.toString();//force conversion
-    var str = '';
-    for (var i = 0; i < hex.length; i += 2)
-        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-    return str;
+    var j;
+    var hexes = hexx.match(/.{1,4}/g) || [];
+    var back = "";
+    for(j = 0; j<hexes.length; j++) {
+        back += String.fromCharCode(parseInt(hexes[j], 16));
+    }
+
+    return back;
 } 
 
 
@@ -516,20 +523,24 @@ $('#textareaBtn').click(function(){
         console.log('data', data);
         
         console.log(document.getElementById('password-field').value);
-        console.log(privkey1);
 
         var publicAddress = localStorage.getItem("pubaddr");
-        console.log("y", publicAddress);
         
         $('#reviewAddress').text(publicAddress);
         $('#reviewKey').text(idkey);
         $('#regist').val(idkey);
         $('#reviewData').text(data);
+
         hexData = toHex(data);
         CONSOLE_DEBUG && console.log("hexData", hexData);
         createRawSendFrom(idkey, net);        
+
+        var hexData = toHex(data);
+        createRawSendFrom(idkey, net, hexData);        
+
     });
-function createRawSendFrom(idkey, netw) {
+    
+function createRawSendFrom(idkey, netw, hexData) {
     var local = netw;
     var aa = pubaddr;
     var ab = idkey;
