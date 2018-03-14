@@ -531,9 +531,9 @@ $('#textareaBtn').click(function(){
         $('#regist').val(idkey);
         $('#reviewData').text(data);
 
-        hexData = toHex(data);
-        CONSOLE_DEBUG && console.log("hexData", hexData);
-        createRawSendFrom(idkey, net);        
+        // hexData = toHex(data);
+        // CONSOLE_DEBUG && console.log("hexData", hexData);
+        // createRawSendFrom(idkey, net);        
 
         var hexData = toHex(data);
         createRawSendFrom(idkey, net, hexData);        

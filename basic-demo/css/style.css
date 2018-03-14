@@ -1,9 +1,10 @@
 #footer {
-    /* position: absolute; */
-    z-index: 1;
-    padding: 0 0 0 20px;
-    bottom: -50px;
+
     font-size: 12px;
+    margin-top: 140px;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
     margin-top: 140px;
 }
 #footer ul {
@@ -560,6 +561,7 @@ i.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
     
     font-size: 12px;
     margin-top: 80px;
+    width: 80%;
 }
 
 }
