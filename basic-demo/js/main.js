@@ -45,7 +45,7 @@ $(document).ready(function(){
                   $(".action-button").hover(function() {
                     $(".action-button").css('box-shadow', '0 0 0 2px white, 0 0 0 3px #54b2ce');
                   });
-                  $('a').css('color', '#54b2ce');
+                  // $('a').css('color', '#54b2ce');
                   // $('li').before().css('background', '#54b2ce');
             }
             else{
