@@ -40,6 +40,13 @@ $(document).ready(function(){
 
                  $('#top').css('background', '#54b2ce');
                  $('#togglecontlabel').text('Test Network');
+                  $('.action-button').css('background', '#54b2ce');
+                  
+                  $(".action-button").hover(function() {
+                    $(".action-button").css('box-shadow', '0 0 0 2px white, 0 0 0 3px #54b2ce');
+                  });
+                  $('a').css('color', '#54b2ce');
+                  // $('li').before().css('background', '#54b2ce');
             }
             else{
                 net == "TestNetwork";
@@ -54,7 +61,7 @@ $(document).ready(function(){
           $('.recordPrevBtn').click(function(){
               // $('footer').css("margin-top", "450px");
           });
-
+          $('#youcanfind').hide();
      
 });
 
@@ -66,6 +73,7 @@ $(document).ready(function(){
                 $('#top').css('background', '#54b2ce');
                  $('#togglecontlabel').text('Test Network');
                  window.location.href = "index.php";
+                 $('.action-button').css('background', '#54b2ce');
               
             }
             else
@@ -270,6 +278,8 @@ $('#table-one').css("display", "table");
 
      var key1 = document.getElementById('regist').value;
     liststreamData(key1,net);
+
+    $('#youcanfind').show();
 
   }
 
