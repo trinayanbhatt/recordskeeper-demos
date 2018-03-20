@@ -1,6 +1,3 @@
-
-
-
 //declaring global flags here //
 
 
@@ -211,24 +208,26 @@ function CreateKeyPairs(net) {
 // Params : str 
 // return : hex 
 function toHex(str) {
-   var arr = [];
- for (var i = 0, l = str.length; i < l; i ++) {
-   var hex = Number(str.charCodeAt(i)).toString(16);
-   arr.push(hex.length > 1 && hex || "0" + hex);
- }
- return arr.join('');
+    var arr = [];
+  for (var i = 0, l = str.length; i < l; i ++) {
+    var hex = Number(str.charCodeAt(i)).toString(16);
+    arr.push(hex.length > 1 && hex || "0" + hex);
+  }
+  return arr.join('');
 
 }
 // recordData() function here that converts any string toHex
 // Params : null 
 // return : none
 function hex2a(hexx) {
-      var hex = hexx.toString();//force conversion
-     var str = '';
-     for (var i = 0; i < hex.length; i += 2)
-         str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-     return str;
-}
+       var hex = hexx.toString();//force conversion
+      var str = '';
+      for (var i = 0; i < hex.length; i += 2)
+          str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+      return str;
+} 
+
+
 
   
 
@@ -348,7 +347,9 @@ function liststreamData(key1, netw) {
               //     CONSOLE_DEBUG && console.log('result in json format :', x);
               //        console.log(p);
               //      $(".datacontainer").css("display", "block");
+
                       x.result = x.result.reverse();
+
                    for(var i= 0; i < x.result.length; i++) {
                       CONSOLE_DEBUG &&  console.log("valueof x",x.result[i] );
                       var publisherAddr = x.result[i].publishers;
@@ -1018,6 +1019,5 @@ var addr = $('#registerd').val();
                        importAddress(net);
           }
 });
-
 
 
