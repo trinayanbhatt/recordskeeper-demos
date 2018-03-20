@@ -211,31 +211,24 @@ function CreateKeyPairs(net) {
 // Params : str 
 // return : hex 
 function toHex(str) {
-    var hex, i;
+   var arr = [];
+ for (var i = 0, l = str.length; i < l; i ++) {
+   var hex = Number(str.charCodeAt(i)).toString(16);
+   arr.push(hex.length > 1 && hex || "0" + hex);
+ }
+ return arr.join('');
 
-    var result = "";
-    for (i=0; i<str.length; i++) {
-        hex = str.charCodeAt(i).toString(16);
-        result += ("000"+hex).slice(-4);
-    }
-
-    return result
 }
 // recordData() function here that converts any string toHex
 // Params : null 
 // return : none
 function hex2a(hexx) {
-    var j;
-    var hexes = hexx.match(/.{1,4}/g) || [];
-    var back = "";
-    for(j = 0; j<hexes.length; j++) {
-        back += String.fromCharCode(parseInt(hexes[j], 16));
-    }
-
-    return back;
-} 
-
-
+      var hex = hexx.toString();//force conversion
+     var str = '';
+     for (var i = 0; i < hex.length; i += 2)
+         str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+     return str;
+}
 
   
 
@@ -355,7 +348,7 @@ function liststreamData(key1, netw) {
               //     CONSOLE_DEBUG && console.log('result in json format :', x);
               //        console.log(p);
               //      $(".datacontainer").css("display", "block");
-
+                      x.result = x.result.reverse();
                    for(var i= 0; i < x.result.length; i++) {
                       CONSOLE_DEBUG &&  console.log("valueof x",x.result[i] );
                       var publisherAddr = x.result[i].publishers;
