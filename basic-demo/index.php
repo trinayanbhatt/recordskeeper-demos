@@ -246,7 +246,7 @@
                                 </div>
                                 <div class="table-responsive"> 
                                   <div class="noteContainer">
-                                    <p>You can find all records related to this key <a href="" target="_blank" id="streamlink"> here </a> .</p>
+                                    <p id="youcanfind">You can find all records related to this key <a href="" target="_blank" id="streamlink"> here </a> .</p>
                                   </div>
                                   <table class="table table-a" id="table-one"> 
                                     <tr>
