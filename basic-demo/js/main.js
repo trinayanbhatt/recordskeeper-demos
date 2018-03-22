@@ -722,9 +722,22 @@ $('#startdemo').click(function(e){
            
             else{
 
+
+
                  $('#leadfirstname').css('border','1px solid green');
                  $('#leademail').css('border','1px solid green');
                  $('#html_element').css('border','1px solid green');
+
+                 $.ajax({
+                       type: "POST",
+                       url: 'php/madmimi.php',
+                       data:({name: name, email: email}),
+                       success:function(Response) {
+
+                           var x = Response;
+                         
+                       }  
+                });
 
                 var current_fs, next_fs, previous_fs; //fieldsets
                 var left, opacity, scale; //fieldset properties which we will animate
