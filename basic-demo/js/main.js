@@ -115,6 +115,8 @@ $('#createkeypair').click(function(){
     
      
 });
+
+
 // CreateKeyPairs function here that makes a post request to sendwithdata.php
 //params : NULL
 // get_address
@@ -731,7 +733,7 @@ $('#startdemo').click(function(e){
                  $.ajax({
                        type: "POST",
                        url: 'php/madmimi.php',
-                       data:({name: name, email: email}),
+                       data:({name: name, email: email, net: net}),
                        success:function(Response) {
 
                            var x = Response;

@@ -8,5 +8,8 @@ return array(
     "chain" => 'recordskeeper',
     "fromaddress" => 'address',
     "coin" => '1',
-    "nodeaddr" => 'nodeaddress'
+    "nodeaddr" => 'nodeaddress',
+    'madmimi_key' => 'madmimi_key',
+    'madmimi_user' => 'madmimi_user',
+    "madmimi_demo_list" => 'madmimi_demo_list'
 );

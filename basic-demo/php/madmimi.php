@@ -1,11 +1,22 @@
 <?php
 
+    $net = $_POST['net'];
+    
+    if ($net == 'TestNetwork'){
+    $config = include('config-testnet.php');}
+    else {
+      $config = include('config-mainnet.php');
+    }
+$madmimiUser = $config['madmimi_user'];
+$madmimiKey  = $config['madmimi_key'];
+
+
   // record lead in madmimi
     $name = $_POST['name'];
     $email = $_POST['email'];
 
 
-    $GLOBALS = include('globals.php');
+
 
    $words = explode(" ", $name);
    if (count($words) == 1) {
@@ -19,7 +30,7 @@
      $firstName = implode( " ", $words );
    }
 
-    $madmimiUrl = $GLOBALS["madmimiAirdropList"] . "?email=".$email;
+    $madmimiUrl = $config["madmimi_demo_list"] . "?email=".$email;
  
 
      postDetailsToMadmimi($madmimiUrl, $firstName, $lastName);
