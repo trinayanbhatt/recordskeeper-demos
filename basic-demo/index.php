@@ -289,12 +289,20 @@
                               <a class="acolor" target="_blank" href="https://faucet.recordskeeper.co//">
                                 <div class="">Recordskeeper Faucet</div>
                              </a>
+		              <a class="acolor" target="_blank" href="https://aidrop.recordskeeper.co//">
+                                <div class="">Recordskeeper Airdrop</div>
+                             </a>
+				
                               <a class="acolor" target="_blank" href="https://wallet.recordskeeper.co/">
                                 <div class="">Recordskeeper Wallet </div>
+                             </a>
+			      <a class="acolor" target="_blank" href="https://miner.recordskeeper.co//">
+                                <div class="">Recordskeeper Miner Stats</div>
                              </a>
                               <a class="acolor" target="_blank" href="https://stats.recordskeeper.co/">
                                 <div class="">Recordskeeper Stats</div>
                              </a>
+				 
                            
                          </div>
 
@@ -386,6 +394,8 @@
           <li><a href="http://faucet.recordskeeper.co/" target="_blank">Faucet</a></li>
           <li><a href="http://stats.recordskeeper.co/" target="_blank">Stats</a></li>
           <li><a href="http://demo.recordskeeper.co/" target="_blank">Demo</a></li>
+	   <li><a href="http://miner.recordskeeper.co/" target="_blank">Miner</a></li>
+            <li><a href="http://airdrop.recordskeeper.co/" target="_blank">Airdrop</a></li>
           </ul>
 </footer>
 </html>
