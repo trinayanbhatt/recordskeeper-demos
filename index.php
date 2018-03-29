@@ -1,7 +1,6 @@
 
 <?php
-error_reporting(0);
-$config = include('./src/config.php'); 
+
 ?>
 
 <!DOCTYPE html>
